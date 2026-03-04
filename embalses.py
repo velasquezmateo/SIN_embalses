@@ -66,28 +66,14 @@ database=''
 engine=create_engine(f'postgresql+psycopg://{user}:{password}@{host}/{database}')
 
 #Enviar las tablas a PostgreSQL
-apor_caudal.to_sql(name='aporte_caudal',
-                   con=engine,
-                   if_exists='append',
-                   schema='embalses',
-                   index=False)
+variables=[apor_caudal,
+           vert_masa,
+           vol_util,
+           caudal_med_hist,
+           porc_apor]
 
-vert_masa.to_sql(name='vertimientos',
-                   con=engine,
-                   if_exists='append',
-                   schema='embalses',
-                   index=False)
-vol_util.to_sql(name='vol_util',
-                   con=engine,
-                   if_exists='append',
-                   schema='embalses',
-                   index=False)
-caudal_med_hist.to_sql(name='caudal_med_hist',
-                   con=engine,
-                   if_exists='append',
-                   schema='embalses',
-                   index=False)
-porc_apor.to_sql(name='porc_apor',
+for n in variables:
+    n.to_sql(name=f'{n}',
                    con=engine,
                    if_exists='append',
                    schema='embalses',
