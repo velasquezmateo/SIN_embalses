@@ -58,13 +58,25 @@ plt.show()'''
 caudal_merged=pd.merge(aportes_caudal,caudal_med_histo,how='inner',on=['name','date'],suffixes=('_actual','_hist'))
 caudal_merged=caudal_merged.drop(columns=['id_actual','id_hist'])
 caudal_merged['date']=pd.to_datetime(caudal_merged['date'],yearfirst=True)
-caudal_actual=caudal_merged[caudal_merged['date']=='2026-03-03'].nlargest(n=20,columns='value_actual')
+caudal_actual=caudal_merged[caudal_merged['date']==f'{fecha_actual}'].nlargest(n=20,columns='value_actual')
+
+caudal_urra=caudal_merged[caudal_merged['name']=='SINU URRA']
+sns.lineplot(data=caudal_urra,x='date',y='value_actual',color='skyblue',label='Caudal Sinú-Urrá')
+sns.lineplot(data=caudal_urra,x='date',y='value_hist',linestyle='--',label='Promedio histórico de caudal',color='royalblue')
+#Sombrear area bajo la línea
+plt.fill_between(caudal_urra['date'], caudal_urra['value_actual'], color='skyblue', alpha=0.2)
+plt.title('Caudal del río Sinú (diario)')
+plt.xlabel('Tiempo',fontsize=12)
+plt.ylabel('Caudal (m3/s)',fontsize=12)
+plt.legend(shadow=True,loc='upper center')
+sns.despine()
+plt.show()
 
 
-'''colors2=['#d32f2f' if actual >=hist else '#00f5b4'
+colors2=['#d32f2f' if actual >=hist else '#00f5b4'
          for actual,hist in zip(caudal_actual['value_actual'],caudal_actual['value_hist'])]
 
-bar_caudal=sns.barplot(data=caudal_actual,x='name',y='value_actual',palette=colors2)
+'''bar_caudal=sns.barplot(data=caudal_actual,x='name',y='value_actual',palette=colors2)
 line_hist=sns.lineplot(data=caudal_actual,x='name',y='value_hist',color='black',marker='o',linestyle='--',label='Promedio histórico')
 
 for c in bar_caudal.containers:
@@ -77,7 +89,7 @@ for c in bar_caudal.containers:
     for l in label:
         l.set_rotation(45)
 
-plt.title('Comparación frente a la media histórica',fontsize=12)
+plt.title('Comparación de caudal frente a la media histórica',fontsize=12)
 plt.suptitle(f'Caudal actual de los principales ríos para el {fecha_actual}',fontsize=18,fontweight='bold',y=0.95)
 plt.xticks(rotation=45,fontsize=7,ha='right')
 plt.ylabel('Caudal (m3/s)',fontweight='bold')
@@ -86,11 +98,23 @@ sns.despine()
 plt.show()'''
 
 vertimientos['date']=pd.to_datetime(vertimientos['date'],yearfirst=True)
-vertimientos['mes']=vertimientos['date'].dt.month
-vertimientos['nombre_mes']=vertimientos['date'].dt.month_name(locale='Spanish')
 grouped=vertimientos.groupby(['date','name'])['value'].sum().reset_index()
-embalses=vertimientos[vertimientos['name'].isin(['ITUANGO','URRA1'])]
-embalses_name=vertimientos['name'].unique().tolist()
+embalses=grouped[grouped['name'].isin(['ITUANGO','URRA1','TOPOCORO'])]
+embalses_grouped=embalses.pivot_table(index='date',columns='name',values='value',aggfunc='sum').fillna(0)
+embalses_grouped=embalses_grouped.reset_index()
 
-plt.stackplot(vertimientos['date'],embalses,labels=embalses_name)
-plt.show()
+
+'''sns.lineplot(data=embalses_grouped,x='date',y='URRA1')
+plt.fill_between(embalses_grouped['date'], embalses_grouped['URRA1'], color='blue', alpha=0.2)
+
+sns.lineplot(data=embalses_grouped,x='date',y='ITUANGO')
+plt.fill_between(embalses_grouped['date'], embalses_grouped['ITUANGO'], color='orange', alpha=0.2)
+
+sns.lineplot(data=embalses_grouped,x='date',y='TOPOCORO')
+plt.fill_between(embalses_grouped['date'], embalses_grouped['TOPOCORO'], color='black', alpha=0.2)
+
+plt.legend()
+sns.despine()
+plt.show()'''
+
+
