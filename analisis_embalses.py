@@ -22,7 +22,6 @@ caudal_med_histo=pd.read_sql('SELECT * FROM embalses.caudal_med_hist',engine)
 #Fecha actual
 fecha_actual=aportes_caudal['date'].max()
 
-
 volumen_util['date']=pd.to_datetime(volumen_util['date'],yearfirst=True)
 vol_actual=volumen_util[volumen_util['date']=='2026-03-03'].sort_values(by='value', ascending=False)
 vol_actual['value']=vol_actual['value']*100
@@ -32,7 +31,7 @@ vol_actual['name']=vol_actual['name'].str.replace('AGREGADO BOGOTA', 'AGR. BOGOT
 colors=['#d32f2f' if x >=95 else '#f57c00' if x >=85 else '#1976d2' for x in vol_actual['value']]
 
 #Gráfico volumen útil actual
-'''sns.set_theme(style="white")
+sns.set_theme(style="white")
 fig, ax = plt.subplots(figsize=(12, 8))
 bar=sns.barplot(vol_actual,x='name',y='value',palette=colors)
 
@@ -47,12 +46,13 @@ for c in bar.containers:
 ax.set_title(f'Porcentaje de volumen útil diario reportado al SIN para el {fecha_actual}',fontsize=18,fontweight='bold')
 plt.axhline(95,linestyle='--',color='#d32f2f',linewidth=1,label='Umbral Crítico (95%)')
 plt.axhline(85,linestyle='--',color='#f57c00',linewidth=1,label='Alerta (85%)')
-plt.legend(loc='upper center',shadow=True)
+plt.legend(loc='upper center',shadow=True,fontsize=12)
 plt.xticks(rotation=45,ha='right',fontsize=7)
 plt.ylabel('Volumen útil diario (%)',fontweight='bold')
 plt.ylim(0,110)
+plt.grid(alpha=0.20,axis='y')
 sns.despine()
-plt.show()'''
+plt.show()
 
 #Realizar comparativo entre caudal actual e histórico de los principales afluentes de los embalses
 caudal_merged=pd.merge(aportes_caudal,caudal_med_histo,how='inner',on=['name','date'],suffixes=('_actual','_hist'))
@@ -60,24 +60,31 @@ caudal_merged=caudal_merged.drop(columns=['id_actual','id_hist'])
 caudal_merged['date']=pd.to_datetime(caudal_merged['date'],yearfirst=True)
 caudal_actual=caudal_merged[caudal_merged['date']==f'{fecha_actual}'].nlargest(n=20,columns='value_actual')
 
+#Analizar histórico del río Sinú
 caudal_urra=caudal_merged[caudal_merged['name']=='SINU URRA']
-sns.lineplot(data=caudal_urra,x='date',y='value_actual',color='skyblue',label='Caudal Sinú-Urrá')
-sns.lineplot(data=caudal_urra,x='date',y='value_hist',linestyle='--',label='Promedio histórico de caudal',color='royalblue')
-#Sombrear area bajo la línea
+sns.lineplot(data=caudal_urra,x='date',y='value_actual',
+             color='skyblue',label='Caudal Sinú-Urrá')
+sns.lineplot(data=caudal_urra,x='date',y='value_hist',linestyle='--',
+             label='Promedio histórico de caudal',color='royalblue')
+#Sombrear area bajo la curva
 plt.fill_between(caudal_urra['date'], caudal_urra['value_actual'], color='skyblue', alpha=0.2)
-plt.title('Caudal del río Sinú (diario)')
-plt.xlabel('Tiempo',fontsize=12)
-plt.ylabel('Caudal (m3/s)',fontsize=12)
-plt.legend(shadow=True,loc='upper center')
+plt.title('Caudal del río Sinú (diario)',fontsize=18)
+plt.xlabel('Tiempo',fontsize=12,fontweight='bold')
+plt.ylabel('Promedio caudal (m3/s)',fontsize=12,fontweight='bold')
+plt.legend(shadow=True,loc='upper center',fontsize=12)
+plt.xticks(rotation=45)
+plt.xlim(caudal_urra['date'].min(),caudal_urra['date'].max())
+plt.ylim(0,None)
+plt.grid(alpha=0.20,axis='y')
 sns.despine()
 plt.show()
-
 
 colors2=['#d32f2f' if actual >=hist else '#00f5b4'
          for actual,hist in zip(caudal_actual['value_actual'],caudal_actual['value_hist'])]
 
-'''bar_caudal=sns.barplot(data=caudal_actual,x='name',y='value_actual',palette=colors2)
-line_hist=sns.lineplot(data=caudal_actual,x='name',y='value_hist',color='black',marker='o',linestyle='--',label='Promedio histórico')
+bar_caudal=sns.barplot(data=caudal_actual,x='name',y='value_actual',palette=colors2)
+line_hist=sns.lineplot(data=caudal_actual,x='name',y='value_hist',
+                       color='black',marker='o',linestyle='--',label='Promedio histórico')
 
 for c in bar_caudal.containers:
     label=bar_caudal.bar_label(c,
@@ -94,8 +101,9 @@ plt.suptitle(f'Caudal actual de los principales ríos para el {fecha_actual}',fo
 plt.xticks(rotation=45,fontsize=7,ha='right')
 plt.ylabel('Caudal (m3/s)',fontweight='bold')
 plt.legend(loc='upper center')
+plt.grid(alpha=0.20,axis='y')
 sns.despine()
-plt.show()'''
+plt.show()
 
 vertimientos['date']=pd.to_datetime(vertimientos['date'],yearfirst=True)
 grouped=vertimientos.groupby(['date','name'])['value'].sum().reset_index()
@@ -103,18 +111,23 @@ embalses=grouped[grouped['name'].isin(['ITUANGO','URRA1','TOPOCORO'])]
 embalses_grouped=embalses.pivot_table(index='date',columns='name',values='value',aggfunc='sum').fillna(0)
 embalses_grouped=embalses_grouped.reset_index()
 
-
-'''sns.lineplot(data=embalses_grouped,x='date',y='URRA1')
-plt.fill_between(embalses_grouped['date'], embalses_grouped['URRA1'], color='blue', alpha=0.2)
-
-sns.lineplot(data=embalses_grouped,x='date',y='ITUANGO')
-plt.fill_between(embalses_grouped['date'], embalses_grouped['ITUANGO'], color='orange', alpha=0.2)
-
-sns.lineplot(data=embalses_grouped,x='date',y='TOPOCORO')
-plt.fill_between(embalses_grouped['date'], embalses_grouped['TOPOCORO'], color='black', alpha=0.2)
-
-plt.legend()
+sns.lineplot(data=embalses_grouped,x='date',y='URRA1',
+             color='royalblue',label='Vertimiento embalse Urrá 1')
+sns.lineplot(data=embalses_grouped,x='date',y='ITUANGO',
+             color='skyblue',label='Vertimiento embalse Hidroituango')
+plt.fill_between(embalses_grouped['date'], embalses_grouped['URRA1'],
+                 color='royalblue', alpha=0.2)
+plt.fill_between(embalses_grouped['date'], embalses_grouped['ITUANGO'],
+                 color='skyblue', alpha=0.2)
+plt.title('Serie de tiempo vertimientos en embalses Hidroituango y Urrá 1 (diario)',fontsize=18,fontweight='bold')
+plt.xlabel('Tiempo',fontsize=12,fontweight='bold')
+plt.ylabel('Volumen de agua (m3)',fontsize=12,fontweight='bold')
+plt.legend(loc='upper center',shadow=True,fontsize=12)
+plt.xlim(embalses_grouped['date'].min(),embalses_grouped['date'].max())
+plt.ylim(0,None)
+plt.xticks(rotation=45)
+plt.grid(alpha=0.20,axis='y')
 sns.despine()
-plt.show()'''
+plt.show()
 
 
