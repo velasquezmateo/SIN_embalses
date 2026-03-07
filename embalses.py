@@ -55,6 +55,12 @@ porc_apor['Value']=round(porc_apor['Value']*100)
 porc_apor=porc_apor.drop(columns='Id')
 porc_apor.columns=[c.lower() for c in porc_apor.columns]
 
+listado_embalses=api.request_data('ListadoEmbalses','Sistema',fecha_inicio,fecha_fin)
+# Listado de embalses que se encuentran registrados ante el CND y que son reportados por algún recurso del SIN
+listado_embalses.columns=[c.lower()for c in listado_embalses.columns]
+listado_embalses=listado_embalses.drop(columns=['id','values_code'])
+listado_embalses['values_name']=listado_embalses['values_name'].str.replace('AGREGADO BOGOTA', 'AGR. BOGOTA')
+
 #Crear la conexión con la base de datos
 user='postgres'
 password=''
@@ -70,7 +76,8 @@ variables=[apor_caudal,
            vert_masa,
            vol_util,
            caudal_med_hist,
-           porc_apor]
+           porc_apor,
+           listado_embalses]
 
 for n in variables:
     n.to_sql(name=f'{n}',
@@ -78,3 +85,4 @@ for n in variables:
                    if_exists='append',
                    schema='embalses',
                    index=False)
+

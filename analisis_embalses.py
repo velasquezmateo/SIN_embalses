@@ -18,6 +18,7 @@ vertimientos=pd.read_sql('SELECT * FROM embalses.vertimientos',engine)
 volumen_util=pd.read_sql('SELECT * FROM embalses.vol_util',engine)
 porc_apor=pd.read_sql('SELECT * FROM embalses.porc_apor',engine)
 caudal_med_histo=pd.read_sql('SELECT * FROM embalses.caudal_med_hist',engine)
+embalses_listado=pd.read_sql('SELECT * FROM embalses.listado_embalses',engine)
 
 #Fecha actual
 fecha_actual=aportes_caudal['date'].max()
@@ -26,12 +27,13 @@ volumen_util['date']=pd.to_datetime(volumen_util['date'],yearfirst=True)
 vol_actual=volumen_util[volumen_util['date']=='2026-03-03'].sort_values(by='value', ascending=False)
 vol_actual['value']=vol_actual['value']*100
 vol_actual['name']=vol_actual['name'].str.replace('AGREGADO BOGOTA', 'AGR. BOGOTA')
+volumen_util['name']=volumen_util['name'].str.replace('AGREGADO BOGOTA', 'AGR. BOGOTA')
 
 #Establecer umbral de capacidad para volumen útil diario
 colors=['#d32f2f' if x >=95 else '#f57c00' if x >=85 else '#1976d2' for x in vol_actual['value']]
 
 #Gráfico volumen útil actual
-sns.set_theme(style="white")
+'''sns.set_theme(style="white")
 fig, ax = plt.subplots(figsize=(12, 8))
 bar=sns.barplot(vol_actual,x='name',y='value',palette=colors)
 
@@ -52,7 +54,7 @@ plt.ylabel('Volumen útil diario (%)',fontweight='bold')
 plt.ylim(0,110)
 plt.grid(alpha=0.20,axis='y')
 sns.despine()
-plt.show()
+plt.show()'''
 
 #Realizar comparativo entre caudal actual e histórico de los principales afluentes de los embalses
 caudal_merged=pd.merge(aportes_caudal,caudal_med_histo,how='inner',on=['name','date'],suffixes=('_actual','_hist'))
@@ -61,7 +63,7 @@ caudal_merged['date']=pd.to_datetime(caudal_merged['date'],yearfirst=True)
 caudal_actual=caudal_merged[caudal_merged['date']==f'{fecha_actual}'].nlargest(n=20,columns='value_actual')
 
 #Analizar histórico del río Sinú
-caudal_urra=caudal_merged[caudal_merged['name']=='SINU URRA']
+'''caudal_urra=caudal_merged[caudal_merged['name']=='SINU URRA']
 sns.lineplot(data=caudal_urra,x='date',y='value_actual',
              color='skyblue',label='Caudal Sinú-Urrá')
 sns.lineplot(data=caudal_urra,x='date',y='value_hist',linestyle='--',
@@ -77,12 +79,12 @@ plt.xlim(caudal_urra['date'].min(),caudal_urra['date'].max())
 plt.ylim(0,None)
 plt.grid(alpha=0.20,axis='y')
 sns.despine()
-plt.show()
+plt.show()'''
 
 colors2=['#d32f2f' if actual >=hist else '#00f5b4'
          for actual,hist in zip(caudal_actual['value_actual'],caudal_actual['value_hist'])]
 
-bar_caudal=sns.barplot(data=caudal_actual,x='name',y='value_actual',palette=colors2)
+'''bar_caudal=sns.barplot(data=caudal_actual,x='name',y='value_actual',palette=colors2)
 line_hist=sns.lineplot(data=caudal_actual,x='name',y='value_hist',
                        color='black',marker='o',linestyle='--',label='Promedio histórico')
 
@@ -104,14 +106,14 @@ plt.legend(loc='upper center')
 plt.grid(alpha=0.20,axis='y')
 sns.despine()
 plt.show()
-
+'''
 vertimientos['date']=pd.to_datetime(vertimientos['date'],yearfirst=True)
 grouped=vertimientos.groupby(['date','name'])['value'].sum().reset_index()
 embalses=grouped[grouped['name'].isin(['ITUANGO','URRA1','TOPOCORO'])]
 embalses_grouped=embalses.pivot_table(index='date',columns='name',values='value',aggfunc='sum').fillna(0)
 embalses_grouped=embalses_grouped.reset_index()
 
-sns.lineplot(data=embalses_grouped,x='date',y='URRA1',
+'''sns.lineplot(data=embalses_grouped,x='date',y='URRA1',
              color='royalblue',label='Vertimiento embalse Urrá 1')
 sns.lineplot(data=embalses_grouped,x='date',y='ITUANGO',
              color='skyblue',label='Vertimiento embalse Hidroituango')
@@ -128,6 +130,22 @@ plt.ylim(0,None)
 plt.xticks(rotation=45)
 plt.grid(alpha=0.20,axis='y')
 sns.despine()
-plt.show()
+plt.show()'''
 
+# Fusionar volumen útil y listado de embalses
+embalses_listado=embalses_listado.drop(columns='date')
+embalses_listado=embalses_listado.rename(columns={'values_name':'name'})
+embalses_regiones=pd.merge(volumen_util,embalses_listado,how='left',on='name')
+embalses_regiones=embalses_regiones.drop(columns=['id_x','id_y'])
+regiones_grouped=embalses_regiones.groupby(['date','values_hydroregion'])['value'].mean().reset_index()
+regiones_pivot=regiones_grouped.pivot(index='date',columns='values_hydroregion',values='value')
+regiones_pivot=regiones_pivot.reset_index()
+
+print(regiones_pivot)
+
+sns.lineplot(data=regiones_pivot,x='date',y='ANTIOQUIA',color='green')
+sns.lineplot(data=regiones_pivot,x='date',y='CALDAS',color='blue')
+sns.lineplot(data=regiones_pivot,x='date',y='CENTRO',color='red')
+sns.lineplot(data=regiones_pivot,x='date',y='ORIENTE',color='black')
+plt.show()
 
