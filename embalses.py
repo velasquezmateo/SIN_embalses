@@ -61,28 +61,34 @@ listado_embalses.columns=[c.lower()for c in listado_embalses.columns]
 listado_embalses=listado_embalses.drop(columns=['id','values_code'])
 listado_embalses['values_name']=listado_embalses['values_name'].str.replace('AGREGADO BOGOTA', 'AGR. BOGOTA')
 
+precio_bolsa=api.request_data('PrecBolsNaci','Sistema',fecha_inicio,fecha_fin)
+# Precio de oferta de la última planta flexible para atender la demanda comercial nacional, más delta de incremento para
+# remunerar los costos no cubiertos de las plantas térmicas en el despacho ideal
+precio_bolsa=precio_bolsa.drop(columns=['Id','Values_code'])
+# Convertir columnas a filas
+precio_bolsa_melt=pd.melt(precio_bolsa,id_vars='Date',var_name='hora',value_name='valor')
+precio_bolsa_melt['hora']=precio_bolsa_melt['hora'].str.replace(r'\D','',regex=True)
+print(precio_bolsa_melt)
+
 #Crear la conexión con la base de datos
 user='postgres'
-password=''
+password='postgres_caesar'
 host='localhost'
 puerto='5432'
-database=''
+database='postgres'
 
 #Crear motor de conexión
 engine=create_engine(f'postgresql+psycopg://{user}:{password}@{host}/{database}')
 
 #Enviar las tablas a PostgreSQL
-variables=[apor_caudal,
+'''variables=[apor_caudal,
            vert_masa,
            vol_util,
            caudal_med_hist,
            porc_apor,
-           listado_embalses]
+           listado_embalses]'''
 
-for n in variables:
-    n.to_sql(name=f'{n}',
-                   con=engine,
-                   if_exists='append',
-                   schema='embalses',
-                   index=False)
+precio_bolsa_melt.to_sql(con=engine,schema='embalses',if_exists='append',index=False)
+
+
 
