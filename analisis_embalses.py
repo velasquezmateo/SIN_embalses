@@ -19,6 +19,7 @@ volumen_util=pd.read_sql('SELECT * FROM embalses.vol_util',engine)
 porc_apor=pd.read_sql('SELECT * FROM embalses.porc_apor',engine)
 caudal_med_histo=pd.read_sql('SELECT * FROM embalses.caudal_med_hist',engine)
 embalses_listado=pd.read_sql('SELECT * FROM embalses.listado_embalses',engine)
+precio_bolsa=pd.read_sql('SELECT * FROM embalses.precio_bolsa',engine)
 
 #Fecha actual
 fecha_actual=aportes_caudal['date'].max()
@@ -141,11 +142,48 @@ regiones_grouped=embalses_regiones.groupby(['date','values_hydroregion'])['value
 regiones_pivot=regiones_grouped.pivot(index='date',columns='values_hydroregion',values='value')
 regiones_pivot=regiones_pivot.reset_index()
 
-print(regiones_pivot)
-
-sns.lineplot(data=regiones_pivot,x='date',y='ANTIOQUIA',color='green')
+'''sns.lineplot(data=regiones_pivot,x='date',y='ANTIOQUIA',color='green')
 sns.lineplot(data=regiones_pivot,x='date',y='CALDAS',color='blue')
 sns.lineplot(data=regiones_pivot,x='date',y='CENTRO',color='red')
 sns.lineplot(data=regiones_pivot,x='date',y='ORIENTE',color='black')
-plt.show()
+sns.lineplot(data=regiones_pivot,x='date',y='CARIBE',color='orange')
+plt.show()'''
 
+#Analizar precio de bolsa con volumen útil
+precio_bolsa['date']=pd.to_datetime(precio_bolsa['date'],yearfirst=True)
+#Agrupar para igual granularidad con las otras variables
+precio_bolsa_grouped=precio_bolsa.groupby('date').agg({'valor':'mean'}).reset_index()
+#Agrupar volumen diario (Promedio Nacional Diario)
+volumen_diario=volumen_util.groupby('date')['value'].mean().reset_index()
+
+#Fusionar precio de bolsa con volumen útil
+precio_volumen=pd.merge(precio_bolsa_grouped,volumen_diario,how='inner',on='date')
+precio_volumen['precio_7d']=precio_volumen['valor'].rolling(window=7,min_periods=1).mean()
+precio_volumen['volumen_7d']=precio_volumen['value'].rolling(window=7,min_periods=1).mean()
+
+
+#Graficar la correlación entre el precio y el volumen útil de los embalses
+fig, ax1= plt.subplots(figsize=(12,8))
+
+ax1.plot(precio_volumen['date'],precio_volumen['volumen_7d'],
+         color='steelblue',label='Volumen útil (Suavizado)',alpha=0.8)
+ax1.fill_between(x=precio_volumen['date'],y1=precio_volumen['volumen_7d'],color='skyblue',alpha=0.1)
+ax1.set_ylabel('Nivel de Volumen Útil Nacional (%)',fontsize=12)
+ax1.set_xlim(precio_volumen['date'].min(),precio_volumen['date'].max())
+ax1.set_ylim(0,1)
+
+
+#Graficar segundo eje Y
+ax2=ax1.twinx()
+ax2.plot(precio_volumen['date'],precio_volumen['precio_7d'],
+         color='olivedrab',label='Precio de bolsa (Suavizado)',linewidth=1.5)
+ax2.set_ylabel('Precio de bolsa (COP/kWh)',fontsize=12)
+ax2.set_xlim(precio_volumen['date'].min(),precio_volumen['date'].max())
+ax2.set_ylim(0,precio_volumen['precio_7d'].max()*1.1)
+
+
+plt.title('Divergencia Hídrico-Económica: Volumen Útil vs. Precio de Bolsa', fontsize=16, pad=20, fontweight='bold')
+sns.despine()
+plt.grid(axis='y',alpha=0.3,color='grey',linestyle='--')
+
+plt.show()

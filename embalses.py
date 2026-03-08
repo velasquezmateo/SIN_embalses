@@ -66,29 +66,28 @@ precio_bolsa=api.request_data('PrecBolsNaci','Sistema',fecha_inicio,fecha_fin)
 # remunerar los costos no cubiertos de las plantas térmicas en el despacho ideal
 precio_bolsa=precio_bolsa.drop(columns=['Id','Values_code'])
 # Convertir columnas a filas
-precio_bolsa_melt=pd.melt(precio_bolsa,id_vars='Date',var_name='hora',value_name='valor')
-precio_bolsa_melt['hora']=precio_bolsa_melt['hora'].str.replace(r'\D','',regex=True)
-print(precio_bolsa_melt)
+precios_bolsa=pd.melt(precio_bolsa,id_vars='Date',var_name='hora',value_name='valor')
+precios_bolsa['hora']=precios_bolsa['hora'].str.replace(r'\D','',regex=True)
+precios_bolsa.columns=[c.lower() for c in precios_bolsa.columns]
+precios_bolsa['hora']=precios_bolsa['hora'].astype('int')
 
 #Crear la conexión con la base de datos
 user='postgres'
-password='postgres_caesar'
+password=''
 host='localhost'
 puerto='5432'
-database='postgres'
-
-#Crear motor de conexión
-engine=create_engine(f'postgresql+psycopg://{user}:{password}@{host}/{database}')
+database=''
 
 #Enviar las tablas a PostgreSQL
-'''variables=[apor_caudal,
+variables=[apor_caudal,
            vert_masa,
            vol_util,
            caudal_med_hist,
            porc_apor,
-           listado_embalses]'''
+           listado_embalses,
+           precios_bolsa]
 
-precio_bolsa_melt.to_sql(con=engine,schema='embalses',if_exists='append',index=False)
-
+#Crear motor de conexión
+engine=create_engine(f'postgresql+psycopg://{user}:{password}@{host}/{database}')
 
 
