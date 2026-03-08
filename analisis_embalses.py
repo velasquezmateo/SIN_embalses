@@ -140,14 +140,29 @@ embalses_regiones=pd.merge(volumen_util,embalses_listado,how='left',on='name')
 embalses_regiones=embalses_regiones.drop(columns=['id_x','id_y'])
 regiones_grouped=embalses_regiones.groupby(['date','values_hydroregion'])['value'].mean().reset_index()
 regiones_pivot=regiones_grouped.pivot(index='date',columns='values_hydroregion',values='value')
-regiones_pivot=regiones_pivot.reset_index()
 
-'''sns.lineplot(data=regiones_pivot,x='date',y='ANTIOQUIA',color='green')
-sns.lineplot(data=regiones_pivot,x='date',y='CALDAS',color='blue')
-sns.lineplot(data=regiones_pivot,x='date',y='CENTRO',color='red')
-sns.lineplot(data=regiones_pivot,x='date',y='ORIENTE',color='black')
-sns.lineplot(data=regiones_pivot,x='date',y='CARIBE',color='orange')
-plt.show()'''
+
+#Crear peso de las regiones por día
+regiones_norm=regiones_pivot.div(regiones_pivot.sum(axis=1),axis=0)
+regiones_norm=regiones_norm.reset_index()
+
+#Iterar el nombre de las columnas para que el gráfico las procese
+columnas=['ANTIOQUIA','CALDAS','CARIBE','ORIENTE','VALLE','CENTRO']
+y_columnas=[regiones_norm[col] for col in columnas]
+plt.stackplot(regiones_norm['date'],y_columnas,labels=columnas,
+              colors=sns.color_palette("Blues", 6))
+plt.title('Participación Relativa por Región en la Reserva Hídrica Nacional',fontsize=16,fontweight='bold')
+plt.ylabel('Distribución de la Reserva (100%)')
+handles,labels=plt.gca().get_legend_handles_labels()
+plt.legend(handles[::-1],labels[::-1],loc='upper left')
+plt.xlim(regiones_norm['date'].min(),regiones_norm['date'].max())
+plt.ylim(0,1)
+sns.despine()
+plt.show()
+
+
+
+
 
 #Analizar precio de bolsa con volumen útil
 precio_bolsa['date']=pd.to_datetime(precio_bolsa['date'],yearfirst=True)
@@ -161,22 +176,20 @@ precio_volumen=pd.merge(precio_bolsa_grouped,volumen_diario,how='inner',on='date
 precio_volumen['precio_7d']=precio_volumen['valor'].rolling(window=7,min_periods=1).mean()
 precio_volumen['volumen_7d']=precio_volumen['value'].rolling(window=7,min_periods=1).mean()
 
-
 #Graficar la correlación entre el precio y el volumen útil de los embalses
-fig, ax1= plt.subplots(figsize=(12,8))
+'''fig, ax1= plt.subplots(figsize=(12,8))
 
 ax1.plot(precio_volumen['date'],precio_volumen['volumen_7d'],
-         color='steelblue',label='Volumen útil (Suavizado)',alpha=0.8)
+         color='steelblue',label='Nivel de Embalses (%)',alpha=0.8)
 ax1.fill_between(x=precio_volumen['date'],y1=precio_volumen['volumen_7d'],color='skyblue',alpha=0.1)
 ax1.set_ylabel('Nivel de Volumen Útil Nacional (%)',fontsize=12)
 ax1.set_xlim(precio_volumen['date'].min(),precio_volumen['date'].max())
 ax1.set_ylim(0,1)
 
-
 #Graficar segundo eje Y
 ax2=ax1.twinx()
 ax2.plot(precio_volumen['date'],precio_volumen['precio_7d'],
-         color='olivedrab',label='Precio de bolsa (Suavizado)',linewidth=1.5)
+         color='olivedrab',label='Precio Energía (COP/kWh)',linewidth=1.5, alpha=0.8)
 ax2.set_ylabel('Precio de bolsa (COP/kWh)',fontsize=12)
 ax2.set_xlim(precio_volumen['date'].min(),precio_volumen['date'].max())
 ax2.set_ylim(0,precio_volumen['precio_7d'].max()*1.1)
@@ -184,6 +197,16 @@ ax2.set_ylim(0,precio_volumen['precio_7d'].max()*1.1)
 
 plt.title('Divergencia Hídrico-Económica: Volumen Útil vs. Precio de Bolsa', fontsize=16, pad=20, fontweight='bold')
 sns.despine()
-plt.grid(axis='y',alpha=0.3,color='grey',linestyle='--')
+plt.grid(axis='y',alpha=0.4,color='grey',linestyle='--')
 
-plt.show()
+lines1, labels1 = ax1.get_legend_handles_labels()
+lines2, labels2 = ax2.get_legend_handles_labels()
+leg = ax1.legend(lines1 + lines2, labels1 + labels2,
+           loc='upper left',
+           bbox_to_anchor=(0.01, 0.98),
+           frameon=True,
+           fontsize=10,
+           facecolor='white',
+           edgecolor='none',
+           framealpha=0.8)
+plt.show()'''
