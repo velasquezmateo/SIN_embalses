@@ -1,6 +1,6 @@
 <div align="center">
-  <h1>The Water Paradox</h1>
-  <h3>Crisis, Regional Imbalance, and Market Volatility in Colombia’s Power Grid</h3>
+  <h1>Análisis de Resiliencia Energética</h1>
+  <h3>Disparidad Hídrica y Volatilidad del Mercado Eléctrico en Colombia</h3>
 </div>
 Este proyecto documenta un análisis técnico profundo sobre la resiliencia del Sistema Interconectado Nacional (SIN) de Colombia entre 2023 y 2026. A través de un pipeline de datos sencillo pero escalable, se explora cómo la disparidad hídrica regional y eventos operativos críticos dictan el precio de la energía en el país y su dependencia en materia del recurso hídrico para abastecer a la población nacional de energía. <br>
 
@@ -25,4 +25,22 @@ Por otro lado, se enfoca en mostrar la correlación entre las variables físicas
 <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas" />
 <img src="https://img.shields.io/badge/Seaborn-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Seaborn" />
 </p>
+
+<div align="center">
+<h2>📥 Adquisición y Preparación de Datos</h2>
+</div>
+
+XM (Administrador del Mercado): Extracción de series de tiempo diarias de:
+**Aportes Hídricos**: Valores de la hidrologia de los caudales de los rios del SIN, en metros cubicos por segundo<br>
+**Vertimientos**:Los vertimientos en m3 están relacionados con la cantidad de agua que debe ser evacuada en los embalses cuando la reserva sobrepasa la capacidad maxima de almacenamiento.<br>
+**Volumen Útil**: Porcentaje de volumen almacenado en el embalse por encima del Nivel Mínimo Técnico<br>
+**Caudal Medio Histórico**: Caudal medio mensual histórico para los rios del SIN, obtenido como el promedio de los valores de cada mes para todos años con información disponibles.<br>
+**Porcentaje de aportes**: [Aportes Caudal / Media Histórica]*100<br>
+**Listado embalses**: Listado de embalses que se encuentran registrados ante el CND y que son reportados por algún recurso del SIN<br>
+**Precio de Bolsa**: Precio de oferta de la última planta flexible para atender la demanda comercial nacional, más delta de incremento para remunerar los costos no cubiertos de las plantas térmicas en el despacho ideal<br>
+
+<div align="center">
+<h2>📝 Enfoque Metodológico y Tratamiento de Series de Tiempo</h2>
+</div>
+
 
