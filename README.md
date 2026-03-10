@@ -30,17 +30,28 @@ Por otro lado, se enfoca en mostrar la correlación entre las variables físicas
 <h2>📥 Adquisición y Preparación de Datos</h2>
 </div>
 
-XM (Administrador del Mercado): Extracción de series de tiempo diarias de:
-**Aportes Hídricos**: Valores de la hidrologia de los caudales de los rios del SIN, en metros cubicos por segundo<br>
-**Vertimientos**:Los vertimientos en m3 están relacionados con la cantidad de agua que debe ser evacuada en los embalses cuando la reserva sobrepasa la capacidad maxima de almacenamiento.<br>
-**Volumen Útil**: Porcentaje de volumen almacenado en el embalse por encima del Nivel Mínimo Técnico<br>
-**Caudal Medio Histórico**: Caudal medio mensual histórico para los rios del SIN, obtenido como el promedio de los valores de cada mes para todos años con información disponibles.<br>
-**Porcentaje de aportes**: [Aportes Caudal / Media Histórica]*100<br>
-**Listado embalses**: Listado de embalses que se encuentran registrados ante el CND y que son reportados por algún recurso del SIN<br>
-**Precio de Bolsa**: Precio de oferta de la última planta flexible para atender la demanda comercial nacional, más delta de incremento para remunerar los costos no cubiertos de las plantas térmicas en el despacho ideal<br>
+XM (Administrador del Mercado): Extracción de series de tiempo diarias de:<br>
+-**Aportes Hídricos**: Valores de la hidrologia de los caudales de los rios del SIN, en metros cubicos por segundo<br>
+-**Vertimientos**:Los vertimientos en m3 están relacionados con la cantidad de agua que debe ser evacuada en los embalses cuando la reserva sobrepasa la capacidad maxima de almacenamiento.<br>
+-**Volumen Útil**: Porcentaje de volumen almacenado en el embalse por encima del Nivel Mínimo Técnico<br>
+-**Caudal Medio Histórico**: Caudal medio mensual histórico para los rios del SIN, obtenido como el promedio de los valores de cada mes para todos años con información disponibles.<br>
+-**Porcentaje de aportes**: [Aportes Caudal / Media Histórica]*100<br>
+-**Listado embalses**: Listado de embalses que se encuentran registrados ante el CND y que son reportados por algún recurso del SIN<br>
+-**Precio de Bolsa**: Precio de oferta de la última planta flexible para atender la demanda comercial nacional, más delta de incremento para remunerar los costos no cubiertos de las plantas térmicas en el despacho ideal<br>
 
 <div align="center">
 <h2>📝 Enfoque Metodológico y Tratamiento de Series de Tiempo</h2>
 </div>
+
+El siguiente análisis desglosa un sistema de embudo que permite generar un panorama desde lo macro hasta la situación actual de la matriz energética nacional:<br>
+
+1. **Volumen de los embalses vs precio energético**:
+
+<div align="center">
+<img width="1351" height="698" alt="4" src="https://github.com/user-attachments/assets/9dde4877-0b0e-47c4-bcae-529e6eb8e5a5" />
+</div>
+
+
+
 
 
