@@ -24,9 +24,6 @@ metric_description=metrica[metrica['MetricName'].str.lower().str.contains('aport
 fecha_inicio=datetime.date(2023,1,1)
 fecha_fin=datetime.date(2026,3,3)
 
-porc_apor=api.request_data('PorcApor','Sistema',fecha_inicio,fecha_fin)
-#[Aportes Caudal / Media Histórica]*100
-
 apor_caudal=api.request_data('AporCaudal','Rio',fecha_inicio,fecha_fin)
 #Valores de la hidrologia de los caudales de los rios del SIN, en metros cubicos por segundo
 apor_caudal=apor_caudal.drop(columns='Id')
