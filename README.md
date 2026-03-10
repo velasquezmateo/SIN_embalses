@@ -51,7 +51,7 @@ El siguiente análisis desglosa un sistema de embudo que permite generar un pano
 <img width="1351" height="698" alt="4" src="https://github.com/user-attachments/assets/9dde4877-0b0e-47c4-bcae-529e6eb8e5a5" />
 </div>
 
-Para comprender la correlación entre estas dos variables, se debe calcular el coeficiente de correlación y probar si existe significancia estadística. Se muestra a continuación un gráfico de regresión que ajusta una línea para conocer su tendencia:<br>
+Para comprender la correlación entre estas dos variables, se debe calcular el coeficiente de correlación y probar si existe significancia estadística. Se muestra a continuación un gráfico de dispersión que ajusta una línea para conocer su tendencia:<br>
 
 <div align="center">
 <img width="1536" height="754" alt="5" src="https://github.com/user-attachments/assets/5cf4cd7a-8f09-4546-85b8-5c36926a80f6" />
@@ -61,7 +61,7 @@ Luego de conocer su tendencia, se calcula si existe una correlación marcada o l
 
 Coeficiente de Spearman (ρ=−0.474): Existe una correlación negativa moderada. El signo negativo confirma la teoría: cuando el volumen de los embalses baja, el precio tiende a subir.<br>
 Sin embargo, esto no asevera que la relación sea lineal, existen otros factores que influyen en el precio final por kWh, como la generación de energía por centrales termoeléctricas, demanda y políticas públicas que, combinados, explicarían mucho más la precisión del precio.<br>
-De hecho, durante el 2024 Colombia vivió un fenómeno del Niño extremo que generó una drástica disminución del volumen útil de los embalses, lo cual preocupó a la sociedad y generó anomalías en los precios a finales del mismo año hacia cotas mayores a 2000 COP/kWh.<br>
+De hecho, durante el 2024 Colombia vivió un fenómeno del Niño extremo durante la temporada seca que generó una drástica disminución del volumen útil de los embalses, lo cual preocupó a la nación y generó anomalías en los precios a finales del mismo año hacia cotas mayores a 2000 COP/kWh.<br>
 
 Ahora bien, surge una pregunta: ¿a nivel nacional los diferentes embalses ubicados en diversas zonas geográficas aportan volumen hídrico de manera similar o se presentan disparidades causadas por el clima regional?<br>
 
@@ -74,8 +74,38 @@ El análisis de participación relativa (Percent Stacked Area) revela que la seg
 <img width="1296" height="684" alt="3" src="https://github.com/user-attachments/assets/b0acb1d3-4167-403b-89c2-571c08d953a6" />
 </div>
 
-**Impacto en el Precio**: Cuando estas regiones reducen su área en el gráfico, el sistema pierde su capacidad de regulación rápida. Aunque el volumen nacional parezca estable, el agotamiento en estas cuencas específicas dispara los precios de bolsa, ya que el sistema debe recurrir a plantas térmicas locales para suplir la demanda de estos nodos.<br>
+**Impacto en el Precio**: Cuando estas regiones reducen su área en el gráfico, el sistema pierde su capacidad de regulación rápida. Aunque el volumen nacional parezca estable, el agotamiento en cuencas específicas como ORIENTE y VALLE dispara los precios de bolsa, ya que el sistema debe recurrir a plantas térmicas locales para suplir la demanda de estos nodos. En contraste, regiones como ANTIOQUIA, CALDAS CARIBE Y CENTRO registran una relativa estabilidad de captación de agua para hidroeléctricas en los períodos entre 2023-2026.<br>
 
+<div align="left">
+<h2>📈 Análisis de Actualidad</h2>
+</div>
+
+Para comprobar la robustez del análisis, se contrastaron los hallazgos históricos con el estado del Sistema Interconectado Nacional (SIN) al 3 de marzo de 2026. Los datos actuales confirman la persistencia de la paradoja hídrica:<br>
+
+<div align="center">
+<img width="1536" height="754" alt="6" src="https://github.com/user-attachments/assets/4a6cf780-749b-48f1-b2f6-adebe7e74a41" />
+</div>
+
+**Calima1** (97.86%) y **Topocoro** (96.59%) lideran el exceso de almacenamiento.
+<br>
+**Urrá 1** (85.60%) y **Ituango** (92.60%) se mantienen en la zona de alerta naranja/roja.
+<br>
+**Conclusión**: La alta concentración de agua en estos nodos obliga a una vigilancia operativa extrema. Como se analizó previamente, los aportes atípicos (como los del río Sinú) generan una presión que el sistema nacional no puede redistribuir, resultando en vertimientos técnicos a pesar de la demanda.
+<br>
+Se muestra a continuación un gráfico que resume las causas del estado actual de los niveles extremos de los embalses, tanto positivos como negativos:
+
+<div align="center">
+<h2>Superavit crítico vs déficit local</h2>
+</div>
+<div align="center">
+<img width="1536" height="754" alt="7" src="https://github.com/user-attachments/assets/8d2110f8-7f55-4f4a-b4d2-7c17fc5cd5d0" />
+</div>
+
+Exceso en el Norte y Occidente: Ríos como el Ituango (1296.42m3/s) y el Sinú (Urrá) presentan caudales significativamente superiores a su media histórica. Esto ha llevado a que embalses como Calima1 (97.86%) y Topocoro (96.59%) superen el Umbral Crítico de Seguridad.
+<br>
+Cuando los embalses se encuentran en cotas cercanas al 100%, deben realizarse vertimientos forzosos para proteger la infraestructura. Como consecuencia se genera un aumento significativo en los caudales ríos abajo, que en casos tan extremos como los ocurridos en el embalse Sinú Urrá I, genera desplazamientos y pérdidas económicas en sectores como la agricultura y la ganadería.<br>
+
+**Riesgo de Racionamiento Local**: Aunque el país "tenga agua" en el norte, la incapacidad de trasvasar esa energía de forma eficiente hacia el sur pone en riesgo la continuidad del servicio en nodos críticos, afectando hospitales, escuelas e industria local.
 
 
 
