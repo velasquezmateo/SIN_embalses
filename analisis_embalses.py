@@ -65,7 +65,7 @@ caudal_merged['date']=pd.to_datetime(caudal_merged['date'],yearfirst=True)
 caudal_actual=caudal_merged[caudal_merged['date']==f'{fecha_actual}'].nlargest(n=20,columns='value_actual')
 
 #Analizar histórico del río Sinú
-'''caudal_urra=caudal_merged[caudal_merged['name']=='SINU URRA']
+caudal_urra=caudal_merged[caudal_merged['name']=='SINU URRA']
 sns.lineplot(data=caudal_urra,x='date',y='value_actual',
              color='skyblue',label='Caudal Sinú-Urrá')
 sns.lineplot(data=caudal_urra,x='date',y='value_hist',linestyle='--',
@@ -73,15 +73,14 @@ sns.lineplot(data=caudal_urra,x='date',y='value_hist',linestyle='--',
 #Sombrear area bajo la curva
 plt.fill_between(caudal_urra['date'], caudal_urra['value_actual'], color='skyblue', alpha=0.2)
 plt.title('Caudal del río Sinú (diario)',fontsize=18)
-plt.xlabel('Tiempo',fontsize=12,fontweight='bold')
-plt.ylabel('Promedio caudal (m3/s)',fontsize=12,fontweight='bold')
+plt.ylabel('Caudal (m3/s)',fontsize=12,fontweight='bold')
 plt.legend(shadow=True,loc='upper center',fontsize=12)
 plt.xticks(rotation=45)
 plt.xlim(caudal_urra['date'].min(),caudal_urra['date'].max())
 plt.ylim(0,None)
 plt.grid(alpha=0.20,axis='y')
 sns.despine()
-plt.show()'''
+plt.show()
 
 colors2=['#d32f2f' if actual >=hist else '#00f5b4'
          for actual,hist in zip(caudal_actual['value_actual'],caudal_actual['value_hist'])]
@@ -107,8 +106,8 @@ plt.ylabel('Caudal (m3/s)',fontweight='bold')
 plt.legend(loc='upper center')
 plt.grid(alpha=0.20,axis='y')
 sns.despine()
-plt.show()
-'''
+plt.show()'''
+
 vertimientos['date']=pd.to_datetime(vertimientos['date'],yearfirst=True)
 grouped=vertimientos.groupby(['date','name'])['value'].sum().reset_index()
 embalses=grouped[grouped['name'].isin(['ITUANGO','URRA1','TOPOCORO'])]
@@ -176,12 +175,12 @@ precio_volumen['volumen_7d']=precio_volumen['value'].rolling(window=7,min_period
 spearman=stats.spearmanr(precio_volumen['value'],precio_volumen['valor'])
 
 #Graficar correlación
-sns.regplot(data=precio_volumen,x='value',y='valor',lowess=True,line_kws={'color':'red'},color='royalblue')
+'''sns.regplot(data=precio_volumen,x='value',y='valor',lowess=True,line_kws={'color':'red'},color='royalblue')
 plt.title('Correlación entre volumen útil y precio de bolsa',fontsize=18,fontweight='bold')
 plt.xlabel('Volumen útil',fontsize=12,fontweight='bold')
 plt.ylabel('Precio de bolsa',fontsize=12,fontweight='bold')
 sns.despine()
-plt.show()
+plt.show()'''
 
 #Graficar la correlación entre el precio y el volumen útil de los embalses
 '''fig, ax1= plt.subplots(figsize=(12,8))
