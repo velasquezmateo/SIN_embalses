@@ -94,16 +94,27 @@ Para comprobar la robustez del análisis, se contrastaron los hallazgos históri
 <br>
 Se muestra a continuación un gráfico que resume las causas del estado actual de los niveles extremos de los embalses, tanto positivos como negativos:
 
-<div align="center">
+<div align="left">
 <h2>Superavit crítico vs déficit local</h2>
 </div>
 <div align="center">
 <img width="1536" height="754" alt="7" src="https://github.com/user-attachments/assets/8d2110f8-7f55-4f4a-b4d2-7c17fc5cd5d0" />
 </div>
 
-Exceso en el Norte y Occidente: Ríos como el Ituango (1296.42m3/s) y el Sinú (Urrá) presentan caudales significativamente superiores a su media histórica. Esto ha llevado a que embalses como Calima1 (97.86%) y Topocoro (96.59%) superen el Umbral Crítico de Seguridad.
+Exceso en el Norte y Occidente: Ríos como el Cauca (1296.42m3/s) y el Sinú (Urrá) presentan caudales significativamente superiores a su media histórica. Esto ha llevado a que embalses como Ituango (92.60%) y Urrá (96.59%) superen el Umbral Crítico de Seguridad.
 <br>
 Cuando los embalses se encuentran en cotas cercanas al 100%, deben realizarse vertimientos forzosos para proteger la infraestructura. Como consecuencia se genera un aumento significativo en los caudales ríos abajo, que en casos tan extremos como los ocurridos en el embalse Sinú Urrá I, genera desplazamientos y pérdidas económicas en sectores como la agricultura y la ganadería.<br>
+
+<div align="left">
+<h2>La Anomalía Operativa en Urrá I</h2>
+</div>
+<div align="center">
+<img width="1536" height="754" alt="8" src="https://github.com/user-attachments/assets/0855c9c6-34ec-4803-a499-dcc0cebd8d3d" />
+</div>
+
+Durante los últimos años, la gráfica de arriba demuestra que existen picos cada vez más elevados que se ubican en los meses de mayo y junio. Estos gráficos abren la puerta para que se enfatice en realizar modelos predictivos que prevengan escenarios como los ocurridos a principios del años 2026. Por ende, La anomalía de Urrá demuestra que la resiliencia energética no se logra solo con lluvia, sino con capacidad de almacenamiento y flexibilidad en la red. Es preferible desplazar generación térmica (costosa y contaminante) para dar paso a la hidroeléctrica que está en riesgo de verter, aprovechando cada m³ de agua antes de que se pierda por el rebosadero. pero tampoco se trata solo de "abrir las compuertas" cuando el embalse está a punto de rebosar, sino de una gestión inteligente que combine ingeniería, predicción de datos y política social que anticipen estos escenarios ante los fenómenos climáticos que se suceden actualmente para establecer si se requiere una expansión física de la represa que garantice la seguridad en las regiones que viven dentro de la cuenca y la estabilidad del mercado.
+
+
 
 **Riesgo de Racionamiento Local**: Aunque el país "tenga agua" en el norte, la incapacidad de trasvasar esa energía de forma eficiente hacia el sur pone en riesgo la continuidad del servicio en nodos críticos, afectando hospitales, escuelas e industria local.
 
