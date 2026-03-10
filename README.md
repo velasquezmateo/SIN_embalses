@@ -51,6 +51,35 @@ El siguiente análisis desglosa un sistema de embudo que permite generar un pano
 <img width="1351" height="698" alt="4" src="https://github.com/user-attachments/assets/9dde4877-0b0e-47c4-bcae-529e6eb8e5a5" />
 </div>
 
+Para comprender la correlación entre estas dos variables, se debe calcular el coeficiente de correlación y probar si existe significancia estadística. Se muestra a continuación un gráfico de regresión que ajusta una línea para conocer su tendencia:<br>
+
+<div align="center">
+<img width="1536" height="754" alt="5" src="https://github.com/user-attachments/assets/5cf4cd7a-8f09-4546-85b8-5c36926a80f6" />
+</div>
+
+Luego de conocer su tendencia, se calcula si existe una correlación marcada o ligera entre estas dos características:<br>
+
+Coeficiente de Spearman (ρ=−0.474): Existe una correlación negativa moderada. El signo negativo confirma la teoría: cuando el volumen de los embalses baja, el precio tiende a subir.<br>
+Sin embargo, esto no asevera que la relación sea lineal, existen otros factores que influyen en el precio final por kWh, como la generación de energía por centrales termoeléctricas, demanda y políticas públicas que, combinados, explicarían mucho más la precisión del precio.<br>
+De hecho, durante el 2024 Colombia vivió un fenómeno del Niño extremo que generó una drástica disminución del volumen útil de los embalses, lo cual preocupó a la sociedad y generó anomalías en los precios a finales del mismo año hacia cotas mayores a 2000 COP/kWh.<br>
+
+Ahora bien, surge una pregunta: ¿a nivel nacional los diferentes embalses ubicados en diversas zonas geográficas aportan volumen hídrico de manera similar o se presentan disparidades causadas por el clima regional?<br>
+
+<div align="left">
+<h2>🌎 Disparidad Regional: La Geografía del Estrés Hídrico</h2>
+</div>
+
+El análisis de participación relativa (Percent Stacked Area) revela que la seguridad energética de Colombia depende de una estructura hídrica profundamente desigual.<br>
+<div align="center">
+<img width="1296" height="684" alt="3" src="https://github.com/user-attachments/assets/b0acb1d3-4167-403b-89c2-571c08d953a6" />
+</div>
+
+**Impacto en el Precio**: Cuando estas regiones reducen su área en el gráfico, el sistema pierde su capacidad de regulación rápida. Aunque el volumen nacional parezca estable, el agotamiento en estas cuencas específicas dispara los precios de bolsa, ya que el sistema debe recurrir a plantas térmicas locales para suplir la demanda de estos nodos.<br>
+
+
+
+
+
 
 
 
