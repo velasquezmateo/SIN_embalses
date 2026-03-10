@@ -74,7 +74,7 @@ El análisis de participación relativa (Percent Stacked Area) revela que la seg
 <img width="1296" height="684" alt="3" src="https://github.com/user-attachments/assets/b0acb1d3-4167-403b-89c2-571c08d953a6" />
 </div>
 
-**Impacto en el Precio**: Cuando estas regiones reducen su área en el gráfico, el sistema pierde su capacidad de regulación rápida. Aunque el volumen nacional parezca estable, el agotamiento en cuencas específicas como ORIENTE y VALLE dispara los precios de bolsa, ya que el sistema debe recurrir a plantas térmicas locales para suplir la demanda de estos nodos. En contraste, regiones como ANTIOQUIA, CALDAS CARIBE Y CENTRO registran una relativa estabilidad de captación de agua para hidroeléctricas en los períodos entre 2023-2026.<br>
+**Impacto en el Precio**: Cuando estas regiones reducen su área en el gráfico, el sistema pierde su capacidad de regulación rápida. Aunque el volumen nacional parezca estable, el agotamiento en cuencas específicas como ORIENTE y VALLE pueden aumentar los precios de bolsa, ya que el sistema debe recurrir a plantas térmicas locales para suplir la demanda de estos nodos. En contraste, regiones como ANTIOQUIA, CALDAS CARIBE Y CENTRO registran una relativa estabilidad de captación de agua para hidroeléctricas en los períodos entre 2023-2026.<br>
 
 <div align="left">
 <h2>📈 Análisis de Actualidad</h2>
