@@ -74,7 +74,13 @@ El análisis de participación relativa (Percent Stacked Area) revela que la seg
 <img width="1296" height="684" alt="3" src="https://github.com/user-attachments/assets/b0acb1d3-4167-403b-89c2-571c08d953a6" />
 </div>
 
-**Impacto en el Precio**: Cuando estas regiones reducen su área en el gráfico, el sistema pierde su capacidad de regulación rápida. Aunque el volumen nacional parezca estable, el agotamiento en cuencas específicas como ORIENTE y VALLE pueden aumentar los precios de bolsa, ya que el sistema debe recurrir a plantas térmicas locales para suplir la demanda de estos nodos. En contraste, regiones como ANTIOQUIA, CALDAS CARIBE Y CENTRO registran una relativa estabilidad de captación de agua para hidroeléctricas en los períodos entre 2023-2026.<br>
+**Impacto en el Precio**: Cuando estas regiones reducen su área en el gráfico, el sistema pierde su capacidad de regulación rápida. Aunque el volumen nacional parezca estable, el agotamiento en cuencas específicas como ORIENTE y VALLE pueden aumentar los precios de bolsa, ya que el sistema debe recurrir a plantas térmicas locales para suplir la demanda de estos nodos, lo que eleva el costo marginal de forma inmediata, independientemente de que el resto del país tenga los embalses llenos. En contraste, regiones como ANTIOQUIA, CALDAS CARIBE Y CENTRO registran una resiliencia de captación de agua para hidroeléctricas en los períodos entre 2023-2026.<br>
+Como resultado, se establecen una serie de acciones con objetivos establecidos para mitigar los impactos tanto del aumento del caudal, como un déficit de éste:
+<br>
+
+**Fortalecimiento de la infraestructura**: Acelerar proyectos de conectividad desde regionescon alta capacidad de generación eléctrica hacia las que poseen un déficit marcado en un marco de tiempo establecido.<br>
+**Generación de energías alternativas**: Que regiones como ORIENTE y VALLE reduzcan su dependencia de la hidroelectricidad local durante los meses de baja captación, permitiendo que sus embalses se recuperen más rápido, incentivando la instalación masiva de granjas solares y sistemas de almacenamiento en estas cuencas específicas. <br>
+La verdadera seguridad energética de Colombia no vendrá de tener más agua, sino de tener más flexibilidad.<br>
 
 <div align="left">
 <h2>📈 Análisis de Actualidad</h2>
