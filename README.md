@@ -51,7 +51,9 @@ El siguiente análisis desglosa un sistema de embudo que permite generar un pano
 <img width="1351" height="698" alt="4" src="https://github.com/user-attachments/assets/9dde4877-0b0e-47c4-bcae-529e6eb8e5a5" />
 </div>
 
-Para comprender la correlación entre estas dos variables, se debe calcular el coeficiente de correlación y probar si existe significancia estadística. Se muestra a continuación un gráfico de dispersión que ajusta una línea para conocer su tendencia:<br>
+En el contexto energético colombiano, la seguridad del suministro eléctrico está intrínsecamente ligada a la variabilidad hidrológica del país. Históricamente, Colombia ha consolidado una matriz de generación predominantemente hidroeléctrica, la cual representa aproximadamente el 70% de su capacidad instalada. Si bien Colombia es un país geográficamente privilegiado por sus vertientes hidrológicas que nacen mayoritariamente en la cordillera de los Andes, conlleva una vulnerabilidad estructural ante fenómenos de variabilidad climática, con la aparición de fenómenos como el Niño, lo que en últimas impacta en la producción energética y por ende el bolsillo de los usuarios. Para conocer la relación "agua-precio energía", se debe estudiar si existe alguna relación tangible entre ambas variables. Para esto, me he propuesto pasar de la teoría y centrarme en obtener los datos necesarios con el fin de cuantificar qué tanto golpea el bolsillo del colombiano la falta de lluvia, usando herramientas estadísticas para probar que la relación entre el nivel de los embalses y el precio de la energía no es una coincidencia, sino un patrón predecible."
+
+Primero, se debe evaluar si existe correlación que no sea fruto del azar, para esto se debe calcular el coeficiente de correlación y probar si existe significancia estadística. Se muestra a continuación un gráfico de dispersión que ajusta una línea para conocer su tendencia:<br>
 
 <div align="center">
 <img width="1536" height="754" alt="5" src="https://github.com/user-attachments/assets/5cf4cd7a-8f09-4546-85b8-5c36926a80f6" />
@@ -59,11 +61,20 @@ Para comprender la correlación entre estas dos variables, se debe calcular el c
 
 Luego de conocer su tendencia, se calcula si existe una correlación marcada o ligera entre estas dos características:<br>
 
-Coeficiente de Spearman (ρ=−0.474): Existe una correlación negativa moderada. El signo negativo confirma la teoría: cuando el volumen de los embalses baja, el precio tiende a subir.<br>
+**Coeficiente de Spearman (ρ=−0.474)**: Existe una correlación negativa moderada. El signo negativo confirma la teoría: cuando el volumen de los embalses baja, el precio tiende a subir.
+<br>
+**Significancia (p<0.05)**: El valor obtenido es casi cero. (Para ver el cálculo detallado de la correlación y el procesamiento de datos, consulta el script de Python:
+[Análisis de Correlación Hídrica (Python)](./analisis_embalses.py)
+<br>
 Sin embargo, esto no asevera que la relación sea lineal, existen otros factores que influyen en el precio final por kWh, como la generación de energía por centrales termoeléctricas, demanda y políticas públicas que, combinados, explicarían mucho más la precisión del precio.<br>
-De hecho, durante el 2024 Colombia vivió un fenómeno del Niño extremo durante la temporada seca que generó una drástica disminución del volumen útil de los embalses, lo cual preocupó a la nación y generó anomalías en los precios a finales del mismo año hacia cotas mayores a 2000 COP/kWh.<br>
+De hecho, durante el 2024 Colombia vivió un fenómeno del Niño extremo durante la temporada seca que generó una drástica disminución del volumen útil de los embalses, lo cual preocupó a la nación y generó anomalías en los precios a finales del mismo año hacia cotas mayores a 2000 COP/kWh.
+<br>
+A esto se suma un acontecimiento que tomó por sorpresa a gran parte de la población: la pérdida de soberanía de abastecimiento de gas natural de Colombia. Una racha que se detuvo tras 50 años de suministro continuo, lo que obligó al Estado a importar el combustible.
+Esta situación se agravó ante la falta de continuidad en la exploración y extracción de nuevos yacimientos y una política nacional restrictiva que cedió ante la crisis climática que vivió el país durante el corrido del 2024.<br>
 
-Ahora bien, surge una pregunta: ¿a nivel nacional los diferentes embalses ubicados en diversas zonas geográficas aportan volumen hídrico de manera similar o se presentan disparidades causadas por el clima regional?<br>
+
+Ahora bien, surgen preguntas tales como:¿Qué tanto depende el sector energético del nivel de sus embalses para suministrar energía a todas las regiones del país? ¿a nivel nacional los diferentes embalses ubicados en diversas zonas geográficas aportan volumen hídrico de manera similar o se presentan disparidades causadas por el clima regional?
+<br>
 
 <div align="left">
 <h2>🌎 Disparidad Regional: La Geografía del Estrés Hídrico</h2>
