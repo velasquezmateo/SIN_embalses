@@ -56,7 +56,7 @@ En el contexto energético colombiano, la seguridad del suministro eléctrico es
 Primero, se debe evaluar si existe correlación que no sea fruto del azar, para esto se debe calcular el coeficiente de correlación y probar si existe significancia estadística. Se muestra a continuación un gráfico de dispersión que ajusta una línea para conocer su tendencia:<br>
 
 <div align="center">
-![corre.png](../../../Downloads/corre.png)
+<img width="1536" height="754" alt="Image" src="https://github.com/user-attachments/assets/4da83633-6a41-44e4-b8f2-c401224bafb6" />
 </div>
 
 Luego de conocer su tendencia, se calcula si existe una correlación marcada o ligera entre estas dos características:<br>
@@ -83,7 +83,7 @@ Ahora bien, aquí llegan preguntas indispensables:¿Qué tanto depende el sector
 
 El análisis de participación relativa (Percent Stacked Area) revela que la seguridad energética de Colombia depende de una estructura hídrica profundamente desigual.<br>
 <div align="center">
-![participacion_regiones.png](../../../Downloads/participacion_regiones.png)
+<img width="1536" height="754" alt="Image" src="https://github.com/user-attachments/assets/9f8b9457-6456-4abd-8325-dd44fbd11d74" />
 </div>
 
 **Impacto en el Precio**: Cuando estas regiones reducen su área en el gráfico, el sistema pierde su capacidad de regulación rápida. Aunque el volumen nacional parezca estable, el agotamiento en cuencas específicas como ORIENTE y VALLE pueden aumentar los precios de bolsa, ya que el sistema debe recurrir a plantas térmicas locales para suplir la demanda de estos nodos, lo que eleva el costo marginal de forma inmediata, independientemente de que el resto del país tenga los embalses llenos. En contraste, regiones como ANTIOQUIA, CALDAS CARIBE Y CENTRO registran una resiliencia de captación de agua para hidroeléctricas en los períodos entre 2023-2026.<br>
@@ -101,7 +101,7 @@ La verdadera seguridad energética de Colombia no vendrá de tener más agua, si
 Para comprobar la robustez del análisis, se contrastaron los hallazgos históricos con el estado del Sistema Interconectado Nacional (SIN). Los datos actuales confirman la persistencia de la paradoja hídrica:<br>
 
 <div align="center">
-![vol_util.png](../../../Downloads/vol_util.png)
+<img width="1536" height="754" alt="Image" src="https://github.com/user-attachments/assets/dc367e7d-13a9-4347-9abc-a95ce4f6efe6" />
 </div>
 
 **Calima1** (97.86%) y **Topocoro** (96.59%) lideran el exceso de almacenamiento.
@@ -116,7 +116,7 @@ Se muestra a continuación un gráfico que resume las causas del estado actual d
 <h2>Superavit crítico vs déficit local</h2>
 </div>
 <div align="center">
-![caudal_actual_vs_hist.png](../../../Downloads/caudal_actual_vs_hist.png)
+<img width="1536" height="754" alt="Image" src="https://github.com/user-attachments/assets/b16b8837-614b-4c77-99c9-87efe5ad44b2" />
 </div>
 
 Exceso en el Norte y Occidente: Ríos como el Cauca (1296.42m3/s) y el Sinú (Urrá) presentan caudales significativamente superiores a su media histórica. Esto ha llevado a que embalses como Ituango (92.60%) y Urrá (96.59%) superen el Umbral Crítico de Seguridad.
@@ -124,13 +124,40 @@ Exceso en el Norte y Occidente: Ríos como el Cauca (1296.42m3/s) y el Sinú (Ur
 Cuando los embalses se encuentran en cotas cercanas al 100%, deben realizarse vertimientos forzosos para proteger la infraestructura. Como consecuencia se genera un aumento significativo en los caudales ríos abajo, que en casos tan extremos como los ocurridos en el embalse Sinú Urrá I, genera desplazamientos y pérdidas económicas en sectores como la agricultura y la ganadería.<br>
 
 <div align="left">
-<h2>La Anomalía Operativa en Urrá I</h2>
+<h2>🏞️ La Anomalía Operativa en Urrá I</h2>
 </div>
 <div align="center">
-![sinu_urra.png](../../../Downloads/sinu_urra.png)
+<img width="1536" height="754" alt="Image" src="https://github.com/user-attachments/assets/18adedcf-5394-41b7-9b33-55fe26447256" />
 </div>
 
-Durante los últimos años, la gráfica de arriba demuestra que existen picos cada vez más elevados que se ubican en los meses de mayo y junio. Estos gráficos abren la puerta para que se enfatice en realizar modelos predictivos que prevengan escenarios como los ocurridos a principios del años 2026. Por ende, La anomalía de Urrá demuestra que la resiliencia energética no se logra solo con lluvia, sino con capacidad de almacenamiento y flexibilidad en la red. Es preferible desplazar generación térmica (costosa y contaminante) para dar paso a la hidroeléctrica que está en riesgo de verter, aprovechando cada m³ de agua antes de que se pierda por el rebosadero. pero tampoco se trata solo de "abrir las compuertas" cuando el embalse está a punto de rebosar, sino de una gestión inteligente que combine ingeniería, predicción de datos y política social que anticipen estos escenarios ante los fenómenos climáticos que se suceden actualmente para establecer si se requiere una expansión física de la represa que garantice la seguridad en las regiones que viven dentro de la cuenca y la estabilidad del mercado.
+Durante los últimos años, la gráfica de arriba demuestra que existen picos cada vez más elevados que se ubican en los meses de mayo y junio. Además, el inicio de año que comprende los meses de enero, febrero y marzo suelen venir acompañados por valores decrecientes del caudal del río Sinú que surte al embalse en cuestión, mismo intervalo temporal que corresponde a la temporada seca y de muy pocas lluvias en Colombia. Sin embargo, el gráfico muestra que durante el mes de enero y febrero de 2026 se presentó un acontecimiento atípico que generó preocupación sobre la capacidad de resiliencia y de respuesta que se tiene a la hora de enfrentar escenarios donde el caudal puede ascender 5 veces más que su promedio histórico. Por ende, La anomalía de Urrá demuestra que la resiliencia energética no se logra solo con lluvia, sino con capacidad de almacenamiento y flexibilidad en la red. Es preferible desplazar generación térmica (costosa y contaminante) para dar paso a la hidroeléctrica que está en riesgo de verter, aprovechando cada m³ de agua antes de que se pierda por el rebosadero. pero tampoco se trata solo de "abrir las compuertas" cuando el embalse está a punto de rebosar, sino de una gestión inteligente que combine ingeniería, predicción de datos y política social que anticipen estos escenarios ante los fenómenos climáticos que se suceden actualmente para establecer si se requiere una expansión física de la represa que garantice la seguridad en las regiones que viven dentro de la cuenca y la estabilidad del mercado.
+<br>
+<div align="center">
+<h2>Instalación y Uso</h2>
+
+
+```
+git clone https://github.com/usuario/repositorio.git
+cd repositorio
+```
+
+<div align="center">
+<h2>🏁 Insights</h2>
+</div>
+El análisis de resiliencia hidro-eléctrica confirma que la seguridad energética de Colombia no depende de la abundancia total del recurso, sino de su ubicación estratégica y de la flexibilidad del sistema para gestionarlo. A pesar de que la estadística valida una relación inversa entre el volumen útil y el precio de bolsa, la disparidad hídrica regional —evidenciada por el contraste entre los excedentes críticos de Urrá I y el agotamiento de cuencas en el Valle y Oriente— rompe la correlación perfecta y expone la vulnerabilidad de una red con limitaciones de transmisión. Por eso, se deben enfocar esfuerzos en fortalecer las áreas que históricamente se ven más golpeadas ante fenómenos extremos, tanto de lluvias intensas como sequías prolongadas. Así, diversificar la matriz en nodos críticos (Oriente y Valle) aligera la presión sobre embalses específicos.
+<br>
+En última instancia, la resiliencia del sector eléctrico no se logrará únicamente con lluvias, sino mediante el uso de modelos predictivos y una red flexible capaz de transformar un riesgo de inundación en el Norte en una solución de costo y estabilidad para el Sur, garantizando así un equilibrio entre la eficiencia operativa y el bienestar social de las comunidades.
+<br>
+¡Gracias por tu interés en este proyecto! Podrás contactarme a través del siguiente enlace
+<br>
+<div align="center">
+<h2>👤 Autor</h2>
+<h3>Mateo Velásquez Castro</h3>
+<h4>Data Analyst con enfoque en Ingeniería de Datos</h4>
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/velasquezmateo/)
+</div>
+
 
 
 
