@@ -50,13 +50,13 @@ El siguiente análisis desglosa un sistema de embudo que permite generar un pano
 En el contexto energético colombiano, la seguridad del suministro eléctrico está intrínsecamente ligada a la variabilidad hidrológica del país. Históricamente, Colombia ha consolidado una matriz de generación predominantemente hidroeléctrica, la cual representa aproximadamente el 70% de su capacidad instalada. Si bien Colombia es un país geográficamente privilegiado por sus vertientes hidrológicas que nacen mayoritariamente en la cordillera de los Andes, conlleva una vulnerabilidad estructural ante fenómenos de variabilidad climática, con la aparición de fenómenos como el Niño, lo que en últimas impacta en la producción energética y por ende el bolsillo de los usuarios. Para conocer la relación "agua-precio energía", se debe estudiar si existe alguna relación tangible entre ambas variables. Para esto, me he propuesto pasar de la teoría y centrarme en obtener los datos necesarios con el fin de cuantificar qué tanto golpea el bolsillo del colombiano la falta de lluvia, usando herramientas estadísticas para probar que la relación entre el nivel de los embalses y el precio de la energía no es una coincidencia, sino un patrón predecible."
 
 <div align="center">
-
+![precio_vs_vol.png](../../../Downloads/precio_vs_vol.png)
 </div>
 
 Primero, se debe evaluar si existe correlación que no sea fruto del azar, para esto se debe calcular el coeficiente de correlación y probar si existe significancia estadística. Se muestra a continuación un gráfico de dispersión que ajusta una línea para conocer su tendencia:<br>
 
 <div align="center">
-<img width="1536" height="754" alt="5" src="https://github.com/user-attachments/assets/5cf4cd7a-8f09-4546-85b8-5c36926a80f6" />
+![corre.png](../../../Downloads/corre.png)
 </div>
 
 Luego de conocer su tendencia, se calcula si existe una correlación marcada o ligera entre estas dos características:<br>
@@ -83,7 +83,7 @@ Ahora bien, aquí llegan preguntas indispensables:¿Qué tanto depende el sector
 
 El análisis de participación relativa (Percent Stacked Area) revela que la seguridad energética de Colombia depende de una estructura hídrica profundamente desigual.<br>
 <div align="center">
-<img width="1296" height="684" alt="3" src="https://github.com/user-attachments/assets/b0acb1d3-4167-403b-89c2-571c08d953a6" />
+![participacion_regiones.png](../../../Downloads/participacion_regiones.png)
 </div>
 
 **Impacto en el Precio**: Cuando estas regiones reducen su área en el gráfico, el sistema pierde su capacidad de regulación rápida. Aunque el volumen nacional parezca estable, el agotamiento en cuencas específicas como ORIENTE y VALLE pueden aumentar los precios de bolsa, ya que el sistema debe recurrir a plantas térmicas locales para suplir la demanda de estos nodos, lo que eleva el costo marginal de forma inmediata, independientemente de que el resto del país tenga los embalses llenos. En contraste, regiones como ANTIOQUIA, CALDAS CARIBE Y CENTRO registran una resiliencia de captación de agua para hidroeléctricas en los períodos entre 2023-2026.<br>
@@ -98,10 +98,10 @@ La verdadera seguridad energética de Colombia no vendrá de tener más agua, si
 <h2>📈 Análisis de Actualidad</h2>
 </div>
 
-Para comprobar la robustez del análisis, se contrastaron los hallazgos históricos con el estado del Sistema Interconectado Nacional (SIN) al 3 de marzo de 2026. Los datos actuales confirman la persistencia de la paradoja hídrica:<br>
+Para comprobar la robustez del análisis, se contrastaron los hallazgos históricos con el estado del Sistema Interconectado Nacional (SIN). Los datos actuales confirman la persistencia de la paradoja hídrica:<br>
 
 <div align="center">
-<img width="1536" height="754" alt="6" src="https://github.com/user-attachments/assets/4a6cf780-749b-48f1-b2f6-adebe7e74a41" />
+![vol_util.png](../../../Downloads/vol_util.png)
 </div>
 
 **Calima1** (97.86%) y **Topocoro** (96.59%) lideran el exceso de almacenamiento.
@@ -116,7 +116,7 @@ Se muestra a continuación un gráfico que resume las causas del estado actual d
 <h2>Superavit crítico vs déficit local</h2>
 </div>
 <div align="center">
-<img width="1536" height="754" alt="7" src="https://github.com/user-attachments/assets/8d2110f8-7f55-4f4a-b4d2-7c17fc5cd5d0" />
+![caudal_actual_vs_hist.png](../../../Downloads/caudal_actual_vs_hist.png)
 </div>
 
 Exceso en el Norte y Occidente: Ríos como el Cauca (1296.42m3/s) y el Sinú (Urrá) presentan caudales significativamente superiores a su media histórica. Esto ha llevado a que embalses como Ituango (92.60%) y Urrá (96.59%) superen el Umbral Crítico de Seguridad.
@@ -127,7 +127,7 @@ Cuando los embalses se encuentran en cotas cercanas al 100%, deben realizarse ve
 <h2>La Anomalía Operativa en Urrá I</h2>
 </div>
 <div align="center">
-<img width="1536" height="754" alt="8" src="https://github.com/user-attachments/assets/0855c9c6-34ec-4803-a499-dcc0cebd8d3d" />
+![sinu_urra.png](../../../Downloads/sinu_urra.png)
 </div>
 
 Durante los últimos años, la gráfica de arriba demuestra que existen picos cada vez más elevados que se ubican en los meses de mayo y junio. Estos gráficos abren la puerta para que se enfatice en realizar modelos predictivos que prevengan escenarios como los ocurridos a principios del años 2026. Por ende, La anomalía de Urrá demuestra que la resiliencia energética no se logra solo con lluvia, sino con capacidad de almacenamiento y flexibilidad en la red. Es preferible desplazar generación térmica (costosa y contaminante) para dar paso a la hidroeléctrica que está en riesgo de verter, aprovechando cada m³ de agua antes de que se pierda por el rebosadero. pero tampoco se trata solo de "abrir las compuertas" cuando el embalse está a punto de rebosar, sino de una gestión inteligente que combine ingeniería, predicción de datos y política social que anticipen estos escenarios ante los fenómenos climáticos que se suceden actualmente para establecer si se requiere una expansión física de la represa que garantice la seguridad en las regiones que viven dentro de la cuenca y la estabilidad del mercado.
