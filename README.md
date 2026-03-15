@@ -50,7 +50,7 @@ El siguiente análisis desglosa un sistema de embudo que permite generar un pano
 En el contexto energético colombiano, la seguridad del suministro eléctrico está intrínsecamente ligada a la variabilidad hidrológica del país. Históricamente, Colombia ha consolidado una matriz de generación predominantemente hidroeléctrica, la cual representa aproximadamente el 70% de su capacidad instalada. Si bien Colombia es un país geográficamente privilegiado por sus vertientes hidrológicas que nacen mayoritariamente en la cordillera de los Andes, conlleva una vulnerabilidad estructural ante fenómenos de variabilidad climática, con la aparición de fenómenos como el Niño, lo que en últimas impacta en la producción energética y por ende el bolsillo de los usuarios. Para conocer la relación "agua-precio energía", se debe estudiar si existe alguna relación tangible entre ambas variables. Para esto, me he propuesto pasar de la teoría y centrarme en obtener los datos necesarios con el fin de cuantificar qué tanto golpea el bolsillo del colombiano la falta de lluvia, usando herramientas estadísticas para probar que la relación entre el nivel de los embalses y el precio de la energía no es una coincidencia, sino un patrón predecible."
 
 <div align="center">
-![precio_vs_vol.png](../../../Downloads/precio_vs_vol.png)
+<img width="1536" height="754" alt="Image" src="https://github.com/user-attachments/assets/1bdb46bd-e598-4644-97c2-ba865f358db6" />
 </div>
 
 Primero, se debe evaluar si existe correlación que no sea fruto del azar, para esto se debe calcular el coeficiente de correlación y probar si existe significancia estadística. Se muestra a continuación un gráfico de dispersión que ajusta una línea para conocer su tendencia:<br>
