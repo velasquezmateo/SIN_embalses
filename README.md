@@ -47,11 +47,13 @@ El siguiente análisis desglosa un sistema de embudo que permite generar un pano
 
 1. **Volumen de los embalses vs precio energético**:
 
+En el contexto energético colombiano, la seguridad del suministro eléctrico está intrínsecamente ligada a la variabilidad hidrológica del país. Históricamente, Colombia ha consolidado una matriz de generación predominantemente hidroeléctrica, la cual representa aproximadamente el 70% de su capacidad instalada. Si bien Colombia es un país geográficamente privilegiado por sus vertientes hidrológicas que nacen mayoritariamente en la cordillera de los Andes, conlleva una vulnerabilidad estructural ante fenómenos de variabilidad climática, con la aparición de fenómenos como el Niño, lo que en últimas impacta en la producción energética y por ende el bolsillo de los usuarios. Para conocer la relación "agua-precio energía", se debe estudiar si existe alguna relación tangible entre ambas variables. Para esto, me he propuesto pasar de la teoría y centrarme en obtener los datos necesarios con el fin de cuantificar qué tanto golpea el bolsillo del colombiano la falta de lluvia, usando herramientas estadísticas para probar que la relación entre el nivel de los embalses y el precio de la energía no es una coincidencia, sino un patrón predecible."
+
 <div align="center">
-<img width="1351" height="698" alt="4" src="https://github.com/user-attachments/assets/9dde4877-0b0e-47c4-bcae-529e6eb8e5a5" />
+
 </div>
 
-Para comprender la correlación entre estas dos variables, se debe calcular el coeficiente de correlación y probar si existe significancia estadística. Se muestra a continuación un gráfico de dispersión que ajusta una línea para conocer su tendencia:<br>
+Primero, se debe evaluar si existe correlación que no sea fruto del azar, para esto se debe calcular el coeficiente de correlación y probar si existe significancia estadística. Se muestra a continuación un gráfico de dispersión que ajusta una línea para conocer su tendencia:<br>
 
 <div align="center">
 <img width="1536" height="754" alt="5" src="https://github.com/user-attachments/assets/5cf4cd7a-8f09-4546-85b8-5c36926a80f6" />
@@ -59,11 +61,21 @@ Para comprender la correlación entre estas dos variables, se debe calcular el c
 
 Luego de conocer su tendencia, se calcula si existe una correlación marcada o ligera entre estas dos características:<br>
 
-Coeficiente de Spearman (ρ=−0.474): Existe una correlación negativa moderada. El signo negativo confirma la teoría: cuando el volumen de los embalses baja, el precio tiende a subir.<br>
+**Coeficiente de Spearman (ρ=−0.474)**: Existe una correlación negativa moderada. El signo negativo confirma la teoría: cuando el volumen de los embalses baja, el precio tiende a subir.
+<br>
+**Significancia (p<0.05)**: El valor obtenido es casi cero. (Para ver el cálculo detallado de la correlación y el procesamiento de datos, consulta el script de Python:
+[Análisis de Correlación Hídrica (Python)](./analisis_embalses.py)
+<br>
 Sin embargo, esto no asevera que la relación sea lineal, existen otros factores que influyen en el precio final por kWh, como la generación de energía por centrales termoeléctricas, demanda y políticas públicas que, combinados, explicarían mucho más la precisión del precio.<br>
-De hecho, durante el 2024 Colombia vivió un fenómeno del Niño extremo durante la temporada seca que generó una drástica disminución del volumen útil de los embalses, lo cual preocupó a la nación y generó anomalías en los precios a finales del mismo año hacia cotas mayores a 2000 COP/kWh.<br>
+De hecho, durante el 2024 Colombia vivió un fenómeno del Niño extremo durante la temporada seca de enero a marzo que generó una drástica disminución del volumen útil de los embalses a nivel nacional, lo cual preocupó a la nación y generó anomalías en los precios a finales del mismo año hacia cotas mayores a 2000 COP/kWh.
+<br>
+A esto se suma un acontecimiento que tomó por sorpresa a gran parte de la población: la pérdida de soberanía de abastecimiento de gas natural de Colombia. Una racha que se detuvo tras 50 años de suministro continuo, lo que obligó al Estado a importar el combustible.
+Esta situación se agravó ante la falta de continuidad en la exploración y extracción de nuevos yacimientos como consecuencia de políticas anti fósiles del gobierno colombiano que desestimuló la inversión y llevó a que el capital busque mejores condiciones en otros países de la región, como Argentina y Guyana, que muestran elevadas tasas de crecimiento.
+<br>
+Con el panorama de la pérdida de soberanía de Colombia en extracción y suministro de gas y una paulatina importación de éste para suplir la demanda que requiere el sector industrial, comercial y los parques térmicos, el recurso hídrico cobra una mayor relevancia, ya que puede ser un gran contrapeso a las altas tarifas que ocasionaría tarde o temprano la importación del combustible fósil mencionado.
 
-Ahora bien, surge una pregunta: ¿a nivel nacional los diferentes embalses ubicados en diversas zonas geográficas aportan volumen hídrico de manera similar o se presentan disparidades causadas por el clima regional?<br>
+Ahora bien, aquí llegan preguntas indispensables:¿Qué tanto depende el sector energético del nivel de sus embalses para suministrar energía a todas las regiones del país? y ¿a nivel nacional los diferentes embalses ubicados en diversas zonas geográficas aportan volumen hídrico de manera similar o se presentan disparidades causadas por el clima regional?
+<br>
 
 <div align="left">
 <h2>🌎 Disparidad Regional: La Geografía del Estrés Hídrico</h2>
@@ -74,7 +86,13 @@ El análisis de participación relativa (Percent Stacked Area) revela que la seg
 <img width="1296" height="684" alt="3" src="https://github.com/user-attachments/assets/b0acb1d3-4167-403b-89c2-571c08d953a6" />
 </div>
 
-**Impacto en el Precio**: Cuando estas regiones reducen su área en el gráfico, el sistema pierde su capacidad de regulación rápida. Aunque el volumen nacional parezca estable, el agotamiento en cuencas específicas como ORIENTE y VALLE pueden aumentar los precios de bolsa, ya que el sistema debe recurrir a plantas térmicas locales para suplir la demanda de estos nodos. En contraste, regiones como ANTIOQUIA, CALDAS CARIBE Y CENTRO registran una relativa estabilidad de captación de agua para hidroeléctricas en los períodos entre 2023-2026.<br>
+**Impacto en el Precio**: Cuando estas regiones reducen su área en el gráfico, el sistema pierde su capacidad de regulación rápida. Aunque el volumen nacional parezca estable, el agotamiento en cuencas específicas como ORIENTE y VALLE pueden aumentar los precios de bolsa, ya que el sistema debe recurrir a plantas térmicas locales para suplir la demanda de estos nodos, lo que eleva el costo marginal de forma inmediata, independientemente de que el resto del país tenga los embalses llenos. En contraste, regiones como ANTIOQUIA, CALDAS CARIBE Y CENTRO registran una resiliencia de captación de agua para hidroeléctricas en los períodos entre 2023-2026.<br>
+Como resultado, se establecen una serie de acciones con objetivos establecidos para mitigar los impactos tanto del aumento del caudal, como un déficit de éste:
+<br>
+
+**Fortalecimiento de la infraestructura**: Acelerar proyectos de conectividad desde regionescon alta capacidad de generación eléctrica hacia las que poseen un déficit marcado en un marco de tiempo establecido.<br>
+**Generación de energías alternativas**: Que regiones como ORIENTE y VALLE reduzcan su dependencia de la hidroelectricidad local durante los meses de baja captación, permitiendo que sus embalses se recuperen más rápido, incentivando la instalación masiva de granjas solares y sistemas de almacenamiento en estas cuencas específicas. <br>
+La verdadera seguridad energética de Colombia no vendrá de tener más agua, sino de tener más flexibilidad.<br>
 
 <div align="left">
 <h2>📈 Análisis de Actualidad</h2>
@@ -114,9 +132,6 @@ Cuando los embalses se encuentran en cotas cercanas al 100%, deben realizarse ve
 
 Durante los últimos años, la gráfica de arriba demuestra que existen picos cada vez más elevados que se ubican en los meses de mayo y junio. Estos gráficos abren la puerta para que se enfatice en realizar modelos predictivos que prevengan escenarios como los ocurridos a principios del años 2026. Por ende, La anomalía de Urrá demuestra que la resiliencia energética no se logra solo con lluvia, sino con capacidad de almacenamiento y flexibilidad en la red. Es preferible desplazar generación térmica (costosa y contaminante) para dar paso a la hidroeléctrica que está en riesgo de verter, aprovechando cada m³ de agua antes de que se pierda por el rebosadero. pero tampoco se trata solo de "abrir las compuertas" cuando el embalse está a punto de rebosar, sino de una gestión inteligente que combine ingeniería, predicción de datos y política social que anticipen estos escenarios ante los fenómenos climáticos que se suceden actualmente para establecer si se requiere una expansión física de la represa que garantice la seguridad en las regiones que viven dentro de la cuenca y la estabilidad del mercado.
 
-
-
-**Riesgo de Racionamiento Local**: Aunque el país "tenga agua" en el norte, la incapacidad de trasvasar esa energía de forma eficiente hacia el sur pone en riesgo la continuidad del servicio en nodos críticos, afectando hospitales, escuelas e industria local.
 
 
 
