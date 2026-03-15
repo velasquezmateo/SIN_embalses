@@ -6,10 +6,10 @@ from scipy import stats
 
 #Crear la conexión con la base de datos
 user='postgres'
-password='postgres_caesar'
+password=''
 host='localhost'
 puerto='5432'
-database='postgres'
+database=''
 
 #Crear motor de conexión
 engine=create_engine(f'postgresql+psycopg://{user}:{password}@{host}/{database}')
@@ -35,7 +35,7 @@ volumen_util['name']=volumen_util['name'].str.replace('AGREGADO BOGOTA', 'AGR. B
 colors=['#d32f2f' if x >=95 else '#f57c00' if x >=85 else '#1976d2' for x in vol_actual['value']]
 
 #Gráfico volumen útil actual
-'''sns.set_theme(style="white")
+sns.set_theme(style="white")
 fig, ax = plt.subplots(figsize=(12, 8))
 bar=sns.barplot(vol_actual,x='name',y='value',palette=colors)
 
@@ -56,7 +56,7 @@ plt.ylabel('Volumen útil diario (%)',fontweight='bold')
 plt.ylim(0,110)
 plt.grid(alpha=0.20,axis='y')
 sns.despine()
-plt.show()'''
+plt.show()
 
 #Realizar comparativo entre caudal actual e histórico de los principales afluentes de los embalses
 caudal_merged=pd.merge(aportes_caudal,caudal_med_histo,how='inner',on=['name','date'],suffixes=('_actual','_hist'))
@@ -85,7 +85,7 @@ plt.show()
 colors2=['#d32f2f' if actual >=hist else '#00f5b4'
          for actual,hist in zip(caudal_actual['value_actual'],caudal_actual['value_hist'])]
 
-'''bar_caudal=sns.barplot(data=caudal_actual,x='name',y='value_actual',palette=colors2)
+bar_caudal=sns.barplot(data=caudal_actual,x='name',y='value_actual',palette=colors2)
 line_hist=sns.lineplot(data=caudal_actual,x='name',y='value_hist',
                        color='black',marker='o',linestyle='--',label='Promedio histórico')
 
@@ -106,7 +106,7 @@ plt.ylabel('Caudal (m3/s)',fontweight='bold')
 plt.legend(loc='upper center')
 plt.grid(alpha=0.20,axis='y')
 sns.despine()
-plt.show()'''
+plt.show()
 
 vertimientos['date']=pd.to_datetime(vertimientos['date'],yearfirst=True)
 grouped=vertimientos.groupby(['date','name'])['value'].sum().reset_index()
@@ -114,7 +114,7 @@ embalses=grouped[grouped['name'].isin(['ITUANGO','URRA1','TOPOCORO'])]
 embalses_grouped=embalses.pivot_table(index='date',columns='name',values='value',aggfunc='sum').fillna(0)
 embalses_grouped=embalses_grouped.reset_index()
 
-'''sns.lineplot(data=embalses_grouped,x='date',y='URRA1',
+sns.lineplot(data=embalses_grouped,x='date',y='URRA1',
              color='royalblue',label='Vertimiento embalse Urrá 1')
 sns.lineplot(data=embalses_grouped,x='date',y='ITUANGO',
              color='skyblue',label='Vertimiento embalse Hidroituango')
@@ -131,7 +131,7 @@ plt.ylim(0,None)
 plt.xticks(rotation=45)
 plt.grid(alpha=0.20,axis='y')
 sns.despine()
-plt.show()'''
+plt.show()
 
 # Fusionar volumen útil y listado de embalses
 embalses_listado=embalses_listado.drop(columns='date')
@@ -148,7 +148,7 @@ regiones_norm=regiones_norm.reset_index()
 #Iterar el nombre de las columnas para que el gráfico las procese
 columnas=['ANTIOQUIA','CALDAS','CARIBE','ORIENTE','VALLE','CENTRO']
 y_columnas=[regiones_norm[col] for col in columnas]
-'''plt.stackplot(regiones_norm['date'],y_columnas,labels=columnas,
+plt.stackplot(regiones_norm['date'],y_columnas,labels=columnas,
               colors=sns.color_palette("Blues", 6))
 plt.title('Participación Relativa por Región en la Reserva Hídrica Nacional',fontsize=16,fontweight='bold')
 plt.ylabel('Distribución de la Reserva (proporción)',fontsize=12,fontweight='bold')
@@ -157,7 +157,7 @@ plt.legend(handles[::-1],labels[::-1],loc='upper left')
 plt.xlim(regiones_norm['date'].min(),regiones_norm['date'].max())
 plt.ylim(0,1)
 sns.despine()
-plt.show()'''
+plt.show()
 
 #Analizar precio de bolsa con volumen útil
 precio_bolsa['date']=pd.to_datetime(precio_bolsa['date'],yearfirst=True)
@@ -175,15 +175,15 @@ precio_volumen['volumen_7d']=precio_volumen['value'].rolling(window=7,min_period
 spearman=stats.spearmanr(precio_volumen['value'],precio_volumen['valor'])
 
 #Graficar correlación
-'''sns.regplot(data=precio_volumen,x='value',y='valor',lowess=True,line_kws={'color':'red'},color='royalblue')
+sns.regplot(data=precio_volumen,x='value',y='valor',lowess=True,line_kws={'color':'red'},color='royalblue')
 plt.title('Correlación entre volumen útil y precio de bolsa',fontsize=18,fontweight='bold')
 plt.xlabel('Volumen útil',fontsize=12,fontweight='bold')
 plt.ylabel('Precio de bolsa',fontsize=12,fontweight='bold')
 sns.despine()
-plt.show()'''
+plt.show()
 
 #Graficar la correlación entre el precio y el volumen útil de los embalses
-'''fig, ax1= plt.subplots(figsize=(12,8))
+fig, ax1= plt.subplots(figsize=(12,8))
 
 ax1.plot(precio_volumen['date'],precio_volumen['volumen_7d'],
          color='steelblue',label='Nivel de Embalses (%)',alpha=0.8)
@@ -215,4 +215,4 @@ leg = ax1.legend(lines1 + lines2, labels1 + labels2,
            facecolor='white',
            edgecolor='none',
            framealpha=0.8)
-plt.show()'''
+plt.show()

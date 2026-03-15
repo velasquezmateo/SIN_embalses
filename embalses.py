@@ -21,8 +21,8 @@ conjunto_datos=df[df['nombreConjuntoDatos'].str.lower().str.contains('embalse')]
 metrica=api.get_collections()
 metric_description=metrica[metrica['MetricName'].str.lower().str.contains('aporte')]   #Filtrar nombres de tablas por palabra clave
 
-fecha_inicio=datetime.date(2023,1,1)
-fecha_fin=datetime.date(2026,3,3)
+fecha_inicio=datetime.date(2026,3,4)
+fecha_fin=datetime.date(2026,3,13)
 
 apor_caudal=api.request_data('AporCaudal','Rio',fecha_inicio,fecha_fin)
 #Valores de la hidrologia de los caudales de los rios del SIN, en metros cubicos por segundo
@@ -75,16 +75,22 @@ host='localhost'
 puerto='5432'
 database=''
 
-#Enviar las tablas a PostgreSQL
-variables=[apor_caudal,
-           vert_masa,
-           vol_util,
-           caudal_med_hist,
-           porc_apor,
-           listado_embalses,
-           precios_bolsa]
-
 #Crear motor de conexión
 engine=create_engine(f'postgresql+psycopg://{user}:{password}@{host}/{database}')
+
+#Enviar las tablas a PostgreSQL
+mapeo_datos = {
+    'aporte_caudal': apor_caudal,
+    'vertimientos': vert_masa,
+    'vol_util': vol_util,
+    'caudal_med_hist': caudal_med_hist,
+    'porc_apor': porc_apor,
+    'listado_embalses': listado_embalses,
+    'precio_bolsa': precios_bolsa
+}
+
+for tabla_sql,df in mapeo_datos.items():
+    df.to_sql(con=engine,schema='embalses',name=tabla_sql,if_exists='append',index=False)
+
 
 
