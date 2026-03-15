@@ -136,11 +136,12 @@ Durante los últimos años, la gráfica de arriba demuestra que existen picos ca
 <h2>Instalación y Uso</h2>
 Si deseas contribuir y participar en este análisis, clona el repositorio a través de Git. Así, seguiremos construyendo una comunidad de analistas enfocada en brindar información actualizada a través de insights y proyecciones útiles para la toma de decisiones en el sector energético.
 
-```
-git clone https://github.com/velasquezmateo/SIN_embalses.git
-cd SIN_embalses
-pip install -r requirements.txt
-```
+                            ```
+                            git clone https://github.com/velasquezmateo/SIN_embalses.git
+                            cd SIN_embalses
+                            pip install -r requirements.txt
+                            ```
+
 
 <div align="center">
 <h2>🏁 Insights</h2>
