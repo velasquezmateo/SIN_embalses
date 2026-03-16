@@ -83,7 +83,7 @@ Ahora bien, aquí llegan preguntas indispensables:¿Qué tanto depende el sector
 
 El análisis de participación relativa (Percent Stacked Area) revela que la seguridad energética de Colombia depende de una estructura hídrica profundamente desigual.<br>
 <div align="center">
-<img width="1536" height="754" alt="Image" src="https://github.com/user-attachments/assets/9f8b9457-6456-4abd-8325-dd44fbd11d74" />
+<img width="1536" height="754" alt="Image" src="https://github.com/user-attachments/assets/e31e8cfa-b1d7-4c4d-bcdd-a0e154ce5b1a" />
 </div>
 
 **Impacto en el Precio**: Cuando estas regiones reducen su área en el gráfico, el sistema pierde su capacidad de regulación rápida. Aunque el volumen nacional parezca estable, el agotamiento en cuencas específicas como ORIENTE y VALLE pueden aumentar los precios de bolsa, ya que el sistema debe recurrir a plantas térmicas locales para suplir la demanda de estos nodos, lo que eleva el costo marginal de forma inmediata, independientemente de que el resto del país tenga los embalses llenos. En contraste, regiones como ANTIOQUIA, CALDAS CARIBE Y CENTRO registran una resiliencia de captación de agua para hidroeléctricas en los períodos entre 2023-2026.<br>
@@ -101,7 +101,7 @@ La verdadera seguridad energética de Colombia no vendrá de tener más agua, si
 Para comprobar la robustez del análisis, se contrastaron los hallazgos históricos con el estado del Sistema Interconectado Nacional (SIN). Los datos actuales confirman la persistencia de la paradoja hídrica:<br>
 
 <div align="center">
-<img width="1536" height="754" alt="Image" src="https://github.com/user-attachments/assets/dc367e7d-13a9-4347-9abc-a95ce4f6efe6" />
+<img width="1536" height="754" alt="Image" src="https://github.com/user-attachments/assets/7fb8fc40-fc85-4c54-b7e2-32d4cca1186c" />
 </div>
 
 **Calima1** (97.86%) y **Topocoro** (96.59%) lideran el exceso de almacenamiento.
@@ -116,7 +116,7 @@ Se muestra a continuación un gráfico que resume las causas del estado actual d
 <h2>Superavit crítico vs déficit local</h2>
 </div>
 <div align="center">
-<img width="1536" height="754" alt="Image" src="https://github.com/user-attachments/assets/b16b8837-614b-4c77-99c9-87efe5ad44b2" />
+<img width="1536" height="754" alt="Image" src="https://github.com/user-attachments/assets/f8f8a800-a2a0-44d8-b7f9-8fbd04a16c1c" />
 </div>
 
 Exceso en el Norte y Occidente: Ríos como el Cauca (1296.42m3/s) y el Sinú (Urrá) presentan caudales significativamente superiores a su media histórica. Esto ha llevado a que embalses como Ituango (92.60%) y Urrá (96.59%) superen el Umbral Crítico de Seguridad.
@@ -127,7 +127,7 @@ Cuando los embalses se encuentran en cotas cercanas al 100%, deben realizarse ve
 <h2>🏞️ La Anomalía Operativa en Urrá I</h2>
 </div>
 <div align="center">
-<img width="1536" height="754" alt="Image" src="https://github.com/user-attachments/assets/18adedcf-5394-41b7-9b33-55fe26447256" />
+<img width="1536" height="754" alt="Image" src="https://github.com/user-attachments/assets/299dd3dd-4cf7-4ded-b0be-61d16406d88b" />
 </div>
 
 Durante los últimos años, la gráfica de arriba demuestra que existen picos cada vez más elevados que se ubican en los meses de mayo y junio. Además, el inicio de año que comprende los meses de enero, febrero y marzo suelen venir acompañados por valores decrecientes del caudal del río Sinú que surte al embalse en cuestión, mismo intervalo temporal que corresponde a la temporada seca y de muy pocas lluvias en Colombia. Sin embargo, el gráfico muestra que durante el mes de enero y febrero de 2026 se presentó un acontecimiento atípico que generó preocupación sobre la capacidad de resiliencia y de respuesta que se tiene a la hora de enfrentar escenarios donde el caudal puede ascender 5 veces más que su promedio histórico. Por ende, La anomalía de Urrá demuestra que la resiliencia energética no se logra solo con lluvia, sino con capacidad de almacenamiento y flexibilidad en la red. Es preferible desplazar generación térmica (costosa y contaminante) para dar paso a la hidroeléctrica que está en riesgo de verter, aprovechando cada m³ de agua antes de que se pierda por el rebosadero. pero tampoco se trata solo de "abrir las compuertas" cuando el embalse está a punto de rebosar, sino de una gestión inteligente que combine ingeniería, predicción de datos y política social que anticipen estos escenarios ante los fenómenos climáticos que se suceden actualmente para establecer si se requiere una expansión física de la represa que garantice la seguridad en las regiones que viven dentro de la cuenca y la estabilidad del mercado.
