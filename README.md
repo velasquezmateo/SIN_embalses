@@ -104,11 +104,9 @@ Para comprobar la robustez del análisis, se contrastaron los hallazgos históri
 <img width="1536" height="754" alt="Image" src="https://github.com/user-attachments/assets/7fb8fc40-fc85-4c54-b7e2-32d4cca1186c" />
 </div>
 
-**Calima1** (97.86%) y **Topocoro** (96.59%) lideran el exceso de almacenamiento.
+**Ituango** (101.76%) supera el 100%. El embalse vuelve a cruzar el umbral de capacidad porque el río CAUCA continúa muy por encima de su promedio histórico, generando vertimientos que ya los 24 días consecutivos.
 <br>
-**Urrá 1** (85.60%) y **Ituango** (92.60%) se mantienen en la zona de alerta naranja/roja.
-<br>
-**Conclusión**: La alta concentración de agua en estos nodos obliga a una vigilancia operativa extrema. Como se analizó previamente, los aportes atípicos (como los del río Sinú) generan una presión que el sistema nacional no puede redistribuir, resultando en vertimientos técnicos a pesar de la demanda.
+**Chuza** (34.36%) y **Muña** (34.4%): dos de los embalses que surten de energía a la región centro del país registran niveles bajos. Los aportes naturales son ineficientes para mantener a cabo las actividades de generación energética a mediano plazo. El AGR. BOGOTA (56.87%) persiste con niveles más elevados para garantizar el suministro eléctrico.
 <br>
 Se muestra a continuación un gráfico que resume las causas del estado actual de los niveles extremos de los embalses, tanto positivos como negativos:
 
@@ -119,7 +117,8 @@ Se muestra a continuación un gráfico que resume las causas del estado actual d
 <img width="1536" height="754" alt="Image" src="https://github.com/user-attachments/assets/f8f8a800-a2a0-44d8-b7f9-8fbd04a16c1c" />
 </div>
 
-Exceso en el Norte y Occidente: Ríos como el Cauca (1296.42m3/s) y el Sinú (Urrá) presentan caudales significativamente superiores a su media histórica. Esto ha llevado a que embalses como Ituango (92.60%) y Urrá (96.59%) superen el Umbral Crítico de Seguridad.
+Exceso en el Norte y Suroccidente: Ríos como el **Cauca** enla represa de **HidroItuango**  (839.51m3/s) y en la represa **Salvajina** se presentan caudales significativamente superiores a su media histórica. Esto ha llevado a que estos embalses generen excedentes que no permiten ser convertidos en energía.<br>
+**Guatapé** (20.23%) y **Miel I** cruzan por debajo de su nivel histórico promedio, mostrando una tendencia general en la moderación de sus aportes.
 <br>
 Cuando los embalses se encuentran en cotas cercanas al 100%, deben realizarse vertimientos forzosos para proteger la infraestructura. Como consecuencia se genera un aumento significativo en los caudales ríos abajo, que en casos tan extremos como los ocurridos en el embalse Sinú Urrá I, genera desplazamientos y pérdidas económicas en sectores como la agricultura y la ganadería.<br>
 
@@ -146,12 +145,14 @@ Si deseas contribuir y participar en este análisis, clona el repositorio a trav
 <div align="center">
 <h2>🏁 Insights</h2>
 </div>
+
 El análisis de resiliencia hidro-eléctrica confirma que la seguridad energética de Colombia no depende de la abundancia total del recurso, sino de su ubicación estratégica y de la flexibilidad del sistema para gestionarlo. A pesar de que la estadística valida una relación inversa entre el volumen útil y el precio de bolsa, la disparidad hídrica regional —evidenciada por el contraste entre los excedentes críticos de Urrá I y el agotamiento de cuencas en el Valle y Oriente— rompe la correlación perfecta y expone la vulnerabilidad de una red con limitaciones de transmisión. Por eso, se deben enfocar esfuerzos en fortalecer las áreas que históricamente se ven más golpeadas ante fenómenos extremos, tanto de lluvias intensas como sequías prolongadas. Así, diversificar la matriz en nodos críticos (Oriente y Valle) aligera la presión sobre embalses específicos.
 <br>
 En última instancia, la resiliencia del sector eléctrico no se logrará únicamente con lluvias, sino mediante el uso de modelos predictivos y una red flexible capaz de transformar un riesgo de inundación en el Norte en una solución de costo y estabilidad para el Sur, garantizando así un equilibrio entre la eficiencia operativa y el bienestar social de las comunidades.
 <br>
 ¡Gracias por tu interés en este proyecto! Podrás contactarme a través del siguiente enlace
 <br>
+
 <div align="center">
 <h2>👤 Autor</h2>
 <h3>Mateo Velásquez Castro</h3>
